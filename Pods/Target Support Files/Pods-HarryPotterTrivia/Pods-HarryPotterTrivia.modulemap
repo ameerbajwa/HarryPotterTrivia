@@ -1,0 +1,6 @@
+framework module Pods_HarryPotterTrivia {
+  umbrella header "Pods-HarryPotterTrivia-umbrella.h"
+
+  export *
+  module * { export * }
+}

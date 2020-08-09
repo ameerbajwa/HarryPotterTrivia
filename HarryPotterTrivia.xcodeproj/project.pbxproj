@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C1F09BD968BBA65B98C04098 /* Pods_HarryPotterTrivia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF552076EFA3F1EA571BEE22 /* Pods_HarryPotterTrivia.framework */; };
 		DE64E7DB24DF7B9C0054CBFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE64E7DA24DF7B9C0054CBFC /* AppDelegate.swift */; };
 		DE64E7DD24DF7B9C0054CBFC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE64E7DC24DF7B9C0054CBFC /* SceneDelegate.swift */; };
 		DE64E7E224DF7B9C0054CBFC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE64E7E024DF7B9C0054CBFC /* Main.storyboard */; };
@@ -16,6 +17,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		04E85D98681EEE60FE45C567 /* Pods-HarryPotterTrivia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HarryPotterTrivia.release.xcconfig"; path = "Target Support Files/Pods-HarryPotterTrivia/Pods-HarryPotterTrivia.release.xcconfig"; sourceTree = "<group>"; };
+		AF552076EFA3F1EA571BEE22 /* Pods_HarryPotterTrivia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HarryPotterTrivia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2EA84523283E79233D4100D /* Pods-HarryPotterTrivia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HarryPotterTrivia.debug.xcconfig"; path = "Target Support Files/Pods-HarryPotterTrivia/Pods-HarryPotterTrivia.debug.xcconfig"; sourceTree = "<group>"; };
 		DE64E7D724DF7B9C0054CBFC /* HarryPotterTrivia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HarryPotterTrivia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE64E7DA24DF7B9C0054CBFC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DE64E7DC24DF7B9C0054CBFC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -31,17 +35,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1F09BD968BBA65B98C04098 /* Pods_HarryPotterTrivia.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2D1BDF0F596AE0FB82E216E4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D2EA84523283E79233D4100D /* Pods-HarryPotterTrivia.debug.xcconfig */,
+				04E85D98681EEE60FE45C567 /* Pods-HarryPotterTrivia.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		58872CF9FF522C7984CD251A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AF552076EFA3F1EA571BEE22 /* Pods_HarryPotterTrivia.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		DE64E7CE24DF7B9C0054CBFC = {
 			isa = PBXGroup;
 			children = (
 				DE64E7D924DF7B9C0054CBFC /* HarryPotterTrivia */,
 				DE64E7D824DF7B9C0054CBFC /* Products */,
+				2D1BDF0F596AE0FB82E216E4 /* Pods */,
+				58872CF9FF522C7984CD251A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -98,9 +123,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DE64E7EB24DF7B9E0054CBFC /* Build configuration list for PBXNativeTarget "HarryPotterTrivia" */;
 			buildPhases = (
+				F2CAD23F677ED8977D73C744 /* [CP] Check Pods Manifest.lock */,
 				DE64E7D324DF7B9C0054CBFC /* Sources */,
 				DE64E7D424DF7B9C0054CBFC /* Frameworks */,
 				DE64E7D524DF7B9C0054CBFC /* Resources */,
+				15103D811FB73EE761BCE326 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -156,6 +183,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		15103D811FB73EE761BCE326 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HarryPotterTrivia/Pods-HarryPotterTrivia-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HarryPotterTrivia/Pods-HarryPotterTrivia-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HarryPotterTrivia/Pods-HarryPotterTrivia-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F2CAD23F677ED8977D73C744 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HarryPotterTrivia-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		DE64E7D324DF7B9C0054CBFC /* Sources */ = {
@@ -306,6 +375,7 @@
 		};
 		DE64E7EC24DF7B9E0054CBFC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D2EA84523283E79233D4100D /* Pods-HarryPotterTrivia.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -323,6 +393,7 @@
 		};
 		DE64E7ED24DF7B9E0054CBFC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 04E85D98681EEE60FE45C567 /* Pods-HarryPotterTrivia.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
