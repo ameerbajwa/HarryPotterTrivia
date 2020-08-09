@@ -9,21 +9,21 @@
 /* Begin PBXBuildFile section */
 		DE64E7DB24DF7B9C0054CBFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE64E7DA24DF7B9C0054CBFC /* AppDelegate.swift */; };
 		DE64E7DD24DF7B9C0054CBFC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE64E7DC24DF7B9C0054CBFC /* SceneDelegate.swift */; };
-		DE64E7DF24DF7B9C0054CBFC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE64E7DE24DF7B9C0054CBFC /* ViewController.swift */; };
 		DE64E7E224DF7B9C0054CBFC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE64E7E024DF7B9C0054CBFC /* Main.storyboard */; };
 		DE64E7E424DF7B9E0054CBFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE64E7E324DF7B9E0054CBFC /* Assets.xcassets */; };
 		DE64E7E724DF7B9E0054CBFC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE64E7E524DF7B9E0054CBFC /* LaunchScreen.storyboard */; };
+		DE64E7F224DF7D260054CBFC /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE64E7F124DF7D260054CBFC /* HomePageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		DE64E7D724DF7B9C0054CBFC /* HarryPotterTrivia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HarryPotterTrivia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE64E7DA24DF7B9C0054CBFC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DE64E7DC24DF7B9C0054CBFC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		DE64E7DE24DF7B9C0054CBFC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		DE64E7E124DF7B9C0054CBFC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DE64E7E324DF7B9E0054CBFC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DE64E7E624DF7B9E0054CBFC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DE64E7E824DF7B9E0054CBFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DE64E7F124DF7D260054CBFC /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,10 +56,11 @@
 		DE64E7D924DF7B9C0054CBFC /* HarryPotterTrivia */ = {
 			isa = PBXGroup;
 			children = (
+				DE64E7F024DF7C6D0054CBFC /* Models */,
 				DE64E7EE24DF7C3A0054CBFC /* Views */,
+				DE64E7EF24DF7C680054CBFC /* Controllers */,
 				DE64E7DA24DF7B9C0054CBFC /* AppDelegate.swift */,
 				DE64E7DC24DF7B9C0054CBFC /* SceneDelegate.swift */,
-				DE64E7DE24DF7B9C0054CBFC /* ViewController.swift */,
 				DE64E7E324DF7B9E0054CBFC /* Assets.xcassets */,
 				DE64E7E524DF7B9E0054CBFC /* LaunchScreen.storyboard */,
 				DE64E7E824DF7B9E0054CBFC /* Info.plist */,
@@ -73,6 +74,21 @@
 				DE64E7E024DF7B9C0054CBFC /* Main.storyboard */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		DE64E7EF24DF7C680054CBFC /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				DE64E7F124DF7D260054CBFC /* HomePageViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		DE64E7F024DF7C6D0054CBFC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -146,9 +162,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DE64E7DF24DF7B9C0054CBFC /* ViewController.swift in Sources */,
 				DE64E7DB24DF7B9C0054CBFC /* AppDelegate.swift in Sources */,
 				DE64E7DD24DF7B9C0054CBFC /* SceneDelegate.swift in Sources */,
+				DE64E7F224DF7D260054CBFC /* HomePageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
