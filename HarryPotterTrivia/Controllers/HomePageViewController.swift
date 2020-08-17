@@ -7,24 +7,18 @@
 //
 
 import UIKit
-import RealmSwift
+import CoreData
 
 class HomePageViewController: UIViewController {
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let realm = try! Realm()
-        print(Realm.Configuration.defaultConfiguration.fileURL)
-        
-        var harrypotterQuizSection = QuizSection()
-        harrypotterQuizSection.name = "Harry Potter"
-        
-        try! realm.write {
-            realm.add(harrypotterQuizSection)
-        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
 
-        // Do any additional setup after loading the view.
     }
     
 

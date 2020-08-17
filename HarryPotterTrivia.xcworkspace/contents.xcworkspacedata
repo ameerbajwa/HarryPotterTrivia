@@ -2,16 +2,10 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/ameerbajwa/Projects/github_projects/HarryPotterTrivia/HarryPotterTrivia/Models/Questions+CoreDataClass.swift">
+      location = "group:/Users/ameerbajwa/Projects/github_projects/HarryPotterTrivia/HarryPotterTrivia/Models/Quiz+CoreDataClass.swift">
    </FileRef>
    <FileRef
-      location = "group:/Users/ameerbajwa/Projects/github_projects/HarryPotterTrivia/HarryPotterTrivia/Models/Questions+CoreDataProperties.swift">
-   </FileRef>
-   <FileRef
-      location = "group:/Users/ameerbajwa/Projects/github_projects/HarryPotterTrivia/HarryPotterTrivia/Models/Quizzes+CoreDataClass.swift">
-   </FileRef>
-   <FileRef
-      location = "group:/Users/ameerbajwa/Projects/github_projects/HarryPotterTrivia/HarryPotterTrivia/Models/Quizzes+CoreDataProperties.swift">
+      location = "group:/Users/ameerbajwa/Projects/github_projects/HarryPotterTrivia/HarryPotterTrivia/Models/Quiz+CoreDataProperties.swift">
    </FileRef>
    <FileRef
       location = "group:HarryPotterTrivia.xcodeproj">
