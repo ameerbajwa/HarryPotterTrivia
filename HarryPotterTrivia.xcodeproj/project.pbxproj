@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,14 @@
 		DE64E7E424DF7B9E0054CBFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE64E7E324DF7B9E0054CBFC /* Assets.xcassets */; };
 		DE64E7E724DF7B9E0054CBFC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE64E7E524DF7B9E0054CBFC /* LaunchScreen.storyboard */; };
 		DE64E7F224DF7D260054CBFC /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE64E7F124DF7D260054CBFC /* HomePageViewController.swift */; };
+		DE64E7F424DF7F3A0054CBFC /* quiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE64E7F324DF7F3A0054CBFC /* quiz.swift */; };
+		DE64E7F624DF7F570054CBFC /* quiz_question.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE64E7F524DF7F570054CBFC /* quiz_question.swift */; };
+		DE64E7F824DF92180054CBFC /* quiz_section.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE64E7F724DF92180054CBFC /* quiz_section.swift */; };
+		DE7126CD24EA09CB0082D11F /* HarryPotterQuizzesCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DE7126CB24EA09CB0082D11F /* HarryPotterQuizzesCoreData.xcdatamodeld */; };
+		DE7126DA24EA0CEB0082D11F /* Questions+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7126D724EA0CEB0082D11F /* Questions+CoreDataClass.swift */; };
+		DE7126DB24EA0CEB0082D11F /* Quizzes+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7126D824EA0CEB0082D11F /* Quizzes+CoreDataClass.swift */; };
+		DE7126DC24EA0CEB0082D11F /* Quizzes+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7126D624EA0CEB0082D11F /* Quizzes+CoreDataProperties.swift */; };
+		DE7126DD24EA0CEB0082D11F /* Questions+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7126D924EA0CEB0082D11F /* Questions+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +36,14 @@
 		DE64E7E624DF7B9E0054CBFC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DE64E7E824DF7B9E0054CBFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DE64E7F124DF7D260054CBFC /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
+		DE64E7F324DF7F3A0054CBFC /* quiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = quiz.swift; sourceTree = "<group>"; };
+		DE64E7F524DF7F570054CBFC /* quiz_question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = quiz_question.swift; sourceTree = "<group>"; };
+		DE64E7F724DF92180054CBFC /* quiz_section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = quiz_section.swift; sourceTree = "<group>"; };
+		DE7126CC24EA09CB0082D11F /* HarryPotterQuizzesCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HarryPotterQuizzesCoreData.xcdatamodel; sourceTree = "<group>"; };
+		DE7126D624EA0CEB0082D11F /* Quizzes+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Quizzes+CoreDataProperties.swift"; path = "/Users/ameerbajwa/Projects/github_projects/HarryPotterTrivia/HarryPotterTrivia/Models/Quizzes+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
+		DE7126D724EA0CEB0082D11F /* Questions+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Questions+CoreDataClass.swift"; path = "/Users/ameerbajwa/Projects/github_projects/HarryPotterTrivia/HarryPotterTrivia/Models/Questions+CoreDataClass.swift"; sourceTree = "<absolute>"; };
+		DE7126D824EA0CEB0082D11F /* Quizzes+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Quizzes+CoreDataClass.swift"; path = "/Users/ameerbajwa/Projects/github_projects/HarryPotterTrivia/HarryPotterTrivia/Models/Quizzes+CoreDataClass.swift"; sourceTree = "<absolute>"; };
+		DE7126D924EA0CEB0082D11F /* Questions+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Questions+CoreDataProperties.swift"; path = "/Users/ameerbajwa/Projects/github_projects/HarryPotterTrivia/HarryPotterTrivia/Models/Questions+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,7 +64,6 @@
 				D2EA84523283E79233D4100D /* Pods-HarryPotterTrivia.debug.xcconfig */,
 				04E85D98681EEE60FE45C567 /* Pods-HarryPotterTrivia.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -81,11 +96,11 @@
 		DE64E7D924DF7B9C0054CBFC /* HarryPotterTrivia */ = {
 			isa = PBXGroup;
 			children = (
+				DE64E7DA24DF7B9C0054CBFC /* AppDelegate.swift */,
+				DE64E7DC24DF7B9C0054CBFC /* SceneDelegate.swift */,
 				DE64E7F024DF7C6D0054CBFC /* Models */,
 				DE64E7EE24DF7C3A0054CBFC /* Views */,
 				DE64E7EF24DF7C680054CBFC /* Controllers */,
-				DE64E7DA24DF7B9C0054CBFC /* AppDelegate.swift */,
-				DE64E7DC24DF7B9C0054CBFC /* SceneDelegate.swift */,
 				DE64E7E324DF7B9E0054CBFC /* Assets.xcassets */,
 				DE64E7E524DF7B9E0054CBFC /* LaunchScreen.storyboard */,
 				DE64E7E824DF7B9E0054CBFC /* Info.plist */,
@@ -112,6 +127,14 @@
 		DE64E7F024DF7C6D0054CBFC /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				DE64E7F724DF92180054CBFC /* quiz_section.swift */,
+				DE64E7F324DF7F3A0054CBFC /* quiz.swift */,
+				DE64E7F524DF7F570054CBFC /* quiz_question.swift */,
+				DE7126CB24EA09CB0082D11F /* HarryPotterQuizzesCoreData.xcdatamodeld */,
+				DE7126D724EA0CEB0082D11F /* Questions+CoreDataClass.swift */,
+				DE7126D924EA0CEB0082D11F /* Questions+CoreDataProperties.swift */,
+				DE7126D824EA0CEB0082D11F /* Quizzes+CoreDataClass.swift */,
+				DE7126D624EA0CEB0082D11F /* Quizzes+CoreDataProperties.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -231,9 +254,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE64E7F824DF92180054CBFC /* quiz_section.swift in Sources */,
 				DE64E7DB24DF7B9C0054CBFC /* AppDelegate.swift in Sources */,
+				DE7126DC24EA0CEB0082D11F /* Quizzes+CoreDataProperties.swift in Sources */,
 				DE64E7DD24DF7B9C0054CBFC /* SceneDelegate.swift in Sources */,
+				DE64E7F624DF7F570054CBFC /* quiz_question.swift in Sources */,
+				DE64E7F424DF7F3A0054CBFC /* quiz.swift in Sources */,
+				DE7126CD24EA09CB0082D11F /* HarryPotterQuizzesCoreData.xcdatamodeld in Sources */,
+				DE7126DD24EA0CEB0082D11F /* Questions+CoreDataProperties.swift in Sources */,
 				DE64E7F224DF7D260054CBFC /* HomePageViewController.swift in Sources */,
+				DE7126DA24EA0CEB0082D11F /* Questions+CoreDataClass.swift in Sources */,
+				DE7126DB24EA0CEB0082D11F /* Quizzes+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,6 +462,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		DE7126CB24EA09CB0082D11F /* HarryPotterQuizzesCoreData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				DE7126CC24EA09CB0082D11F /* HarryPotterQuizzesCoreData.xcdatamodel */,
+			);
+			currentVersion = DE7126CC24EA09CB0082D11F /* HarryPotterQuizzesCoreData.xcdatamodel */;
+			path = HarryPotterQuizzesCoreData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = DE64E7CF24DF7B9C0054CBFC /* Project object */;
 }
