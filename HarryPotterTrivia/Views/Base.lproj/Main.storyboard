@@ -18,10 +18,29 @@
                         <viewLayoutGuide key="safeArea" id="o4C-9Z-wFd"/>
                     </view>
                     <navigationItem key="navigationItem" id="WAJ-N7-JKu"/>
+                    <connections>
+                        <segue destination="Gra-fQ-6wN" kind="show" identifier="quizzesSegue" id="3bh-sF-wA5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yG7-NM-Whp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="99" y="-19"/>
+        </scene>
+        <!--Quizzes View Controller-->
+        <scene sceneID="shK-9W-4ZF">
+            <objects>
+                <viewController id="Gra-fQ-6wN" customClass="quizzesViewController" customModule="HarryPotterTrivia" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="J66-Lu-bAu">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="Ohe-hx-ApY"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Dnc-Tw-0to"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6XH-zY-6rk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1074" y="-19"/>
         </scene>
     </scenes>
 </document>

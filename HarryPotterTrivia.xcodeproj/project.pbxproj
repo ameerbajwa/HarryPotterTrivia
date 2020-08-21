@@ -17,6 +17,7 @@
 		DE7126F224EA25650082D11F /* HarryPotterTrivia.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DE7126F024EA25650082D11F /* HarryPotterTrivia.xcdatamodeld */; };
 		DE7126F524EA26170082D11F /* Quiz+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7126F424EA26170082D11F /* Quiz+CoreDataProperties.swift */; };
 		DE7126F624EA26170082D11F /* Quiz+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7126F324EA26170082D11F /* Quiz+CoreDataClass.swift */; };
+		DE7126F824EF522D0082D11F /* quizzesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7126F724EF522D0082D11F /* quizzesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		DE7126F124EA25650082D11F /* HarryPotterTrivia.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HarryPotterTrivia.xcdatamodel; sourceTree = "<group>"; };
 		DE7126F324EA26170082D11F /* Quiz+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Quiz+CoreDataClass.swift"; path = "/Users/ameerbajwa/Projects/github_projects/HarryPotterTrivia/HarryPotterTrivia/Models/Quiz+CoreDataClass.swift"; sourceTree = "<absolute>"; };
 		DE7126F424EA26170082D11F /* Quiz+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Quiz+CoreDataProperties.swift"; path = "/Users/ameerbajwa/Projects/github_projects/HarryPotterTrivia/HarryPotterTrivia/Models/Quiz+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
+		DE7126F724EF522D0082D11F /* quizzesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = quizzesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				DE64E7F124DF7D260054CBFC /* HomePageViewController.swift */,
+				DE7126F724EF522D0082D11F /* quizzesViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -244,6 +247,7 @@
 				DE7126F524EA26170082D11F /* Quiz+CoreDataProperties.swift in Sources */,
 				DE64E7F224DF7D260054CBFC /* HomePageViewController.swift in Sources */,
 				DE7126F224EA25650082D11F /* HarryPotterTrivia.xcdatamodeld in Sources */,
+				DE7126F824EF522D0082D11F /* quizzesViewController.swift in Sources */,
 				DE7126F624EA26170082D11F /* Quiz+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
