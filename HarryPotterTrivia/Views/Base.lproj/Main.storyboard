@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ghO-N7-OfK">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hh7-Qw-Lig">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -24,14 +24,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yG7-NM-Whp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="99" y="-19"/>
+            <point key="canvasLocation" x="1008.6956521739131" y="-19.419642857142858"/>
         </scene>
         <!--Quizzes View Controller-->
         <scene sceneID="shK-9W-4ZF">
             <objects>
-                <viewController id="Gra-fQ-6wN" customClass="quizzesViewController" customModule="HarryPotterTrivia" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Gra-fQ-6wN" customClass="QuizzesViewController" customModule="HarryPotterTrivia" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="J66-Lu-bAu">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="Ohe-hx-ApY"/>
@@ -40,7 +40,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6XH-zY-6rk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1074" y="-19"/>
+            <point key="canvasLocation" x="1984.057971014493" y="-19.419642857142858"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="8e1-li-UEW">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hh7-Qw-Lig" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hR3-Go-haq">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ghO-N7-OfK" kind="relationship" relationship="rootViewController" id="nDp-aX-MbL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="G3R-VN-H9Z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="98.550724637681171" y="-19.419642857142858"/>
         </scene>
     </scenes>
 </document>

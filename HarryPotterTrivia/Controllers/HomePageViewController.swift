@@ -14,6 +14,10 @@ class HomePageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationItem.title = "Welcome"
+        self.navigationController?.navigationBar.barStyle = .default
+        self.navigationController?.navigationBar.tintColor = .clear
+        
         assignBackgroundImage()
         assignLabels()
         assignButton()
