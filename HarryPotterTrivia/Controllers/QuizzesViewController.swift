@@ -9,6 +9,8 @@
 import UIKit
 
 class QuizzesViewController: UIViewController {
+    
+    var HarryPotterQuizNames = Quizzes()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +22,7 @@ class QuizzesViewController: UIViewController {
         self.navigationItem.hidesBackButton = true
 
         // Do any additional setup after loading the view.
+        print(HarryPotterQuizNames.names)
     }
     
     func assignBackground() {
