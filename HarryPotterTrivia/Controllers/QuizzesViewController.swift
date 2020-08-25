@@ -55,20 +55,39 @@ class QuizzesViewController: UIViewController {
     
     func assignQuizzes() {
         
-        for quiz_name in HarryPotterQuizNames.names {
-            let quizView = UIImageView()
-            let parchmentImage = UIImage(named: "ParchmentScrollImage")
-    //        let parchmentBackgroundColor = UIColor(patternImage: parchmentImage!)
-            
-    //        quizView.backgroundColor = parchmentBackgroundColor
-            
-            quizView.frame = CGRect(x: 40, y: 220, width: 120, height: 160)
-            quizView.image = parchmentImage
-            quizView.clipsToBounds = true
-            self.view.addSubview(quizView)
-        }
+//        let quizView = UIImageView()
+//        let parchmentImage = UIImage(named: "CroppedParchmentRollImage")
+///       let parchmentBackgroundColor = UIColor(patternImage: parchmentImage!)
+//
+//        quizView.backgroundColor = parchmentBackgroundColor
+//
+//        quizView.frame = CGRect(x: 40, y: 220, width: 120, height: 160)
+//        quizView.image = parchmentImage
+//        quizView.clipsToBounds = true
+//
+//        let quizLabel = UILabel()
+//        quizLabel.text = HarryPotterQuizNames.names[0]
+//        quizLabel.frame = quizView.bounds
+//        quizLabel.center = quizView.center
+//        quizLabel.numberOfLines = 0
+//        quizView.addSubview(quizLabel)
+//
+//        self.view.addSubview(quizView)
         
-
+        let parchmentImage = UIImage(named: "CroppedParchmentRollImage")
+        let quizButton = UIButton(type: UIButton.ButtonType.custom) as UIButton
+        quizButton.frame = CGRect(x: 40, y: 220, width: 120, height: 160)
+        quizButton.setBackgroundImage(parchmentImage, for: .normal)
+        quizButton.setTitle("\(HarryPotterQuizNames.names[3])", for: .normal)
+        quizButton.titleLabel?.numberOfLines = 0
+        quizButton.titleLabel?.font = UIFont(name: "Papyrus", size: 15)
+        quizButton.setTitleColor(UIColor.black, for: .normal)
+        quizButton.addTarget(self, action: #selector(quizSelected), for:.touchUpInside)
+        self.view.addSubview(quizButton)
+        
+    }
+    
+    @objc func quizSelected() {
         
     }
     
