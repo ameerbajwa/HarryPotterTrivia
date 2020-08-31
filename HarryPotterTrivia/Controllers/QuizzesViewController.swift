@@ -11,6 +11,8 @@ import UIKit
 class QuizzesViewController: UIViewController {
     
     var HarryPotterQuizNames = Quizzes()
+    var quizFrames = QuizFrames()
+    var quiz: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,51 +57,34 @@ class QuizzesViewController: UIViewController {
     
     func assignQuizzes() {
         
-//        let quizView = UIImageView()
-//        let parchmentImage = UIImage(named: "CroppedParchmentRollImage")
-///       let parchmentBackgroundColor = UIColor(patternImage: parchmentImage!)
-//
-//        quizView.backgroundColor = parchmentBackgroundColor
-//
-//        quizView.frame = CGRect(x: 40, y: 220, width: 120, height: 160)
-//        quizView.image = parchmentImage
-//        quizView.clipsToBounds = true
-//
-//        let quizLabel = UILabel()
-//        quizLabel.text = HarryPotterQuizNames.names[0]
-//        quizLabel.frame = quizView.bounds
-//        quizLabel.center = quizView.center
-//        quizLabel.numberOfLines = 0
-//        quizView.addSubview(quizLabel)
-//
-//        self.view.addSubview(quizView)
-        
-        let parchmentImage = UIImage(named: "CroppedParchmentRollImage")
-        let quizButton = UIButton(type: UIButton.ButtonType.custom) as UIButton
-        quizButton.frame = CGRect(x: 40, y: 220, width: 120, height: 160)
-        quizButton.setBackgroundImage(parchmentImage, for: .normal)
-        quizButton.setTitle("\(HarryPotterQuizNames.names[3])", for: .normal)
-        quizButton.titleLabel?.numberOfLines = 0
-        quizButton.titleLabel?.font = UIFont(name: "Papyrus", size: 15)
-        quizButton.setTitleColor(UIColor.black, for: .normal)
-        quizButton.addTarget(self, action: #selector(quizSelected), for:.touchUpInside)
-        self.view.addSubview(quizButton)
+        for quiz_index in 0...HarryPotterQuizNames.names.count-1 {
+            let parchmentImage = UIImage(named: "CroppedParchmentRollImage")
+            let quizButton = UIButton(type: UIButton.ButtonType.custom) as UIButton
+            quizButton.frame = CGRect(x: quizFrames.x[quiz_index], y: quizFrames.y[quiz_index], width: 120, height: 160)
+            quizButton.setBackgroundImage(parchmentImage, for: .normal)
+            quizButton.setTitle("\(HarryPotterQuizNames.names[quiz_index])", for: .normal)
+            quizButton.titleLabel?.numberOfLines = 0
+            quizButton.titleLabel?.font = UIFont(name: "Papyrus", size: 15)
+            quizButton.setTitleColor(UIColor.black, for: .normal)
+            quizButton.addTarget(self, action: #selector(quizSelected(_ :)), for: .touchUpInside)
+            self.view.addSubview(quizButton)
+        }
         
     }
     
-    @objc func quizSelected() {
-        
+    @objc func quizSelected(_ sender: UIButton) {
+        quiz = sender.titleLabel?.text
+        self.performSegue(withIdentifier: "takingQuizSegue", sender: nil)
     }
     
-
-    /*
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "takingQuizSegue" {
+            if let vc = segue.destination as? TakingQuizViewController {
+                vc.quiz = quiz!
+            }
+        }
     }
-    */
 
 }
