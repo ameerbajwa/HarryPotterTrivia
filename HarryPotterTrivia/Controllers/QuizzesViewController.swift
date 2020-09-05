@@ -18,11 +18,6 @@ class QuizzesViewController: UIViewController {
         super.viewDidLoad()
         
         initializeScreen()
-        
-        self.navigationItem.title = "Quizzes"
-        self.navigationController?.navigationBar.barStyle = .default
-        self.navigationController?.navigationBar.tintColor = .clear
-        self.navigationItem.hidesBackButton = true
 
         // Do any additional setup after loading the view.
         print(HarryPotterQuizNames.names)
@@ -82,7 +77,7 @@ class QuizzesViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "takingQuizSegue" {
             if let vc = segue.destination as? TakingQuizViewController {
-                vc.quiz = quiz!
+                vc.quizName = quiz!
             }
         }
     }
