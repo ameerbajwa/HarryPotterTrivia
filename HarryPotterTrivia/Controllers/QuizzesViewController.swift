@@ -12,7 +12,14 @@ class QuizzesViewController: UIViewController {
     
     var HarryPotterQuizNames = Quizzes()
     var quizFrames = QuizFrames()
-    var quiz: String?
+    var quizName: String?
+    
+    var messageLabel = UILabel()
+    
+    
+    var firstStackView = UIStackView()
+    var secondStackView = UIStackView()
+    var thirdStackView = UIStackView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,9 +37,9 @@ class QuizzesViewController: UIViewController {
     }
     
     func assignBackground() {
-        let backgroundImage = UIImage(named: "HogwartsLibraryImage")
+        let backgroundImage = UIImage(named: Constants.HARRY_POTTER_HOGWARTS_LIBRARY_IMAGE)
         
-        var imageView = UIImageView(frame: view.bounds)
+        let imageView = UIImageView(frame: view.bounds)
         imageView.contentMode =  UIView.ContentMode.scaleAspectFill
         imageView.clipsToBounds = true
         imageView.image = backgroundImage
@@ -42,33 +49,67 @@ class QuizzesViewController: UIViewController {
     }
     
     func assignMessage() {
-        let message = UILabel(frame: CGRect(x: 20, y: 100, width: view.bounds.size.width-40, height: 100))
-        message.text = "Select a quiz below to see if you paid any attention to all the magical instructions and classes while you read the books"
-        message.font = UIFont(name: "Papyrus", size: 20)
-        message.textColor = UIColor.white
-        message.numberOfLines = 0
-        self.view.addSubview(message)
+        // let message = UILabel(frame: CGRect(x: 20, y: 100, width: view.bounds.size.width-40, height: 100))
+        messageLabel.text = Messages.QUIZ_PAGE_INSTRUCTIONS_MESSAGE
+        messageLabel.font = UIFont(name: Constants.HARRY_POTTER_FONT, size: 20)
+        messageLabel.textColor = UIColor.white
+        messageLabel.numberOfLines = 0
+        self.view.addSubview(messageLabel)
+        
+        messageLabel.translatesAutoresizingMaskIntoConstraints = false
+        messageLabel.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 20.0).isActive = true
+        messageLabel.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -20.0).isActive = true
+        messageLabel.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 100.0).isActive = true
+        messageLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        
     }
     
     func assignQuizzes() {
         
+        settingUpStackViews(stackView: firstStackView)
+        settingUpStackViews(stackView: secondStackView)
+        settingUpStackViews(stackView: thirdStackView)
+        
+        firstStackView.topAnchor.constraint(equalTo: messageLabel.bottomAnchor, constant: 40.0).isActive = true
+        secondStackView.topAnchor.constraint(equalTo: firstStackView.bottomAnchor, constant: 40.0).isActive = true
+        thirdStackView.topAnchor.constraint(equalTo: secondStackView.bottomAnchor, constant: 40.0).isActive = true
+        
         for quiz_index in 0...HarryPotterQuizNames.names.count-1 {
-            let parchmentImage = UIImage(named: "CroppedParchmentRollImage")
+            let parchmentImage = UIImage(named: Constants.CROPPED_PARCHMENT_ROLL_IMAGE)
             let quizButton = UIButton(type: UIButton.ButtonType.custom) as UIButton
-            quizButton.frame = CGRect(x: quizFrames.x[quiz_index], y: quizFrames.y[quiz_index], width: 120, height: 160)
+            // quizButton.frame = CGRect(x: quizFrames.x[quiz_index], y: quizFrames.y[quiz_index], width: 120, height: 160)
             quizButton.setBackgroundImage(parchmentImage, for: .normal)
             quizButton.setTitle("\(HarryPotterQuizNames.names[quiz_index])", for: .normal)
             quizButton.titleLabel?.numberOfLines = 0
-            quizButton.titleLabel?.font = UIFont(name: "Papyrus", size: 15)
+            quizButton.titleLabel?.font = UIFont(name: Constants.HARRY_POTTER_FONT, size: 15)
             quizButton.setTitleColor(UIColor.black, for: .normal)
             quizButton.addTarget(self, action: #selector(quizSelected(_ :)), for: .touchUpInside)
-            self.view.addSubview(quizButton)
+            if quiz_index < 2 {
+                firstStackView.addArrangedSubview(quizButton)
+            } else if quiz_index < 4 {
+                secondStackView.addArrangedSubview(quizButton)
+            } else {
+                thirdStackView.addArrangedSubview(quizButton)
+            }
         }
         
     }
     
+    func settingUpStackViews(stackView: UIStackView) {
+        stackView.axis = .horizontal
+        stackView.alignment = .center
+        stackView.distribution = .fillEqually
+        
+        self.view.addSubview(stackView)
+        
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 40.0).isActive = true
+        stackView.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -40.0).isActive = true
+        stackView.heightAnchor.constraint(equalToConstant: 160.0).isActive = true
+    }
+    
     @objc func quizSelected(_ sender: UIButton) {
-        quiz = sender.titleLabel?.text
+        quizName = sender.titleLabel?.text
         self.performSegue(withIdentifier: "takingQuizSegue", sender: nil)
     }
     
@@ -77,7 +118,7 @@ class QuizzesViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "takingQuizSegue" {
             if let vc = segue.destination as? TakingQuizViewController {
-                vc.quizName = quiz!
+                vc.quizName = quizName!
             }
         }
     }
