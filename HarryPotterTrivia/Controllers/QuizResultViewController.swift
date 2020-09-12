@@ -11,7 +11,7 @@ import UIKit
 class QuizResultViewController: UIViewController {
     
     var usersAnswers: [String]?
-    var quizQuestions: [String:Any]?
+    var quizQuestions: [[String:String]]?
     
     var usersScore: Int = 0
 
@@ -19,7 +19,7 @@ class QuizResultViewController: UIViewController {
         super.viewDidLoad()
         
         for index in 0..<quizQuestions!.count {
-            if usersAnswers![index] == quizQuestions!["correct_answer"] {
+            if usersAnswers![index] == quizQuestions![index]["correct_answer"] {
                 usersScore += 1
             }
         }

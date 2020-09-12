@@ -92,7 +92,7 @@ class QuizzesViewController: UIViewController, UIScrollViewDelegate {
         messageLabel.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -20.0).isActive = true
         messageLabel.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 65.0).isActive = true
         messageLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-        messageLabel.heightAnchor.constraint(equalToConstant: 100.0).isActive = true
+        messageLabel.heightAnchor.constraint(equalToConstant: 120.0).isActive = true
     }
     
     func assignQuizzes() {
