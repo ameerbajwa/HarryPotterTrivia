@@ -109,7 +109,6 @@ class QuizzesViewController: UIViewController, UIScrollViewDelegate {
             quizViews[quizViewIndex].frame.size = quizScrollView.bounds.size
                     
             for stackViewIndex in stackViewStartIndex..<stackViewEndIndex {
-                print("stackview number \(stackViewIndex)")
                 settingUpStackViews(stackView: quizStackViews[stackViewIndex], qView: quizViews[quizViewIndex])
 
                 if stackViewIndex == stackViewStartIndex {
@@ -119,7 +118,6 @@ class QuizzesViewController: UIViewController, UIScrollViewDelegate {
                 }
 
                 for quiz_index in quizButtonStartIndex..<quizButtonEndIndex {
-                    print("quiz number \(quiz_index)")
                     quizButtons[quiz_index].setBackgroundImage(parchmentImage, for: .normal)
                     quizButtons[quiz_index].setTitle("\(HarryPotterQuizNames.names[quiz_index])", for: .normal)
                     quizButtons[quiz_index].titleLabel?.numberOfLines = 0
@@ -183,7 +181,7 @@ class QuizzesViewController: UIViewController, UIScrollViewDelegate {
     @objc func quizSelected(_ sender: UIButton) {
         quizName = sender.titleLabel?.text
         print(quizName)
-//        self.performSegue(withIdentifier: "takingQuizSegue", sender: nil)
+        self.performSegue(withIdentifier: "takingQuizSegue", sender: nil)
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {

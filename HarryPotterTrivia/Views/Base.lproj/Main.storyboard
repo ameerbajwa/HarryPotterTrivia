@@ -52,13 +52,33 @@
                     <view key="view" contentMode="scaleToFill" id="m6r-Zj-9Rj">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="vXR-WB-rAl"/>
                     </view>
                     <navigationItem key="navigationItem" id="wXy-5p-UiT"/>
+                    <connections>
+                        <segue destination="d5x-B2-R2c" kind="show" identifier="quizResultSegue" id="Tnw-BD-81j"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GKg-1H-VEK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3976.811594202899" y="-19.419642857142858"/>
+        </scene>
+        <!--Quiz Result View Controller-->
+        <scene sceneID="owh-y3-2nN">
+            <objects>
+                <viewController id="d5x-B2-R2c" customClass="QuizResultViewController" customModule="HarryPotterTrivia" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Yl8-DN-N0O">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="wQm-4j-I95"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="43C-P1-gwt"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="53t-p2-7Ez" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4938" y="-19"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="AEJ-sg-vIt">
