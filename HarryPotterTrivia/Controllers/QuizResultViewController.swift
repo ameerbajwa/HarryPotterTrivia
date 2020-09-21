@@ -24,9 +24,40 @@ class QuizResultViewController: UIViewController {
             }
         }
         
+        settingUpResultPage(score: usersScore)
+        
         print(usersScore)
 
         // Do any additional setup after loading the view.
+    }
+    
+    func settingUpResultPage(score: Int) {
+        let frame = UIImage(named: "frame")
+        
+        let frameView = UIImageView()
+        frameView.image = frame
+        self.view.addSubview(frameView)
+        
+        frameView.translatesAutoresizingMaskIntoConstraints = false
+        frameView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 150.0).isActive = true
+        frameView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 75.0).isActive = true
+        frameView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -75.0).isActive = true
+                
+        var resultImageString: String = ""
+        
+        if score < 4 {
+            resultImageString = "snapeScore0_3"
+        } else if score < 7 {
+            resultImageString = "hermonieScore4_6"
+        } else {
+            resultImageString = "mcgonagallScore7_10"
+        }
+        
+        let resultImage = UIImageView()
+        resultImage.image = UIImage(named: resultImageString)
+        frameView.addSubview(resultImage)
+        
+        
     }
     
 
