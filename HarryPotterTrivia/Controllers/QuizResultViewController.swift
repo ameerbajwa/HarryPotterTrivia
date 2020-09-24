@@ -14,6 +14,7 @@ class QuizResultViewController: UIViewController {
     var quizQuestions: [[String:String]]?
     
     var usersScore: Int = 0
+    var usersScorePercentage: CGFloat = 0.0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,14 +25,13 @@ class QuizResultViewController: UIViewController {
             }
         }
         
-        settingUpResultPage(score: usersScore)
+        usersScorePercentage = CGFloat(usersScore)/CGFloat(quizQuestions!.count)
+        settingUpResultPage(score: usersScore, percentage: usersScorePercentage)
         
-        print(usersScore)
-
         // Do any additional setup after loading the view.
     }
     
-    func settingUpResultPage(score: Int) {
+    func settingUpResultPage(score: Int, percentage: CGFloat) {
         let frame = UIImage(named: "frame")
         
         let frameView = UIImageView()
@@ -45,9 +45,9 @@ class QuizResultViewController: UIViewController {
                 
         var resultImageString: String = ""
         
-        if score < 4 {
+        if percentage < 0.4 {
             resultImageString = "snapeScore0_3"
-        } else if score < 7 {
+        } else if percentage < 0.7 {
             resultImageString = "hermonieScore4_6"
         } else {
             resultImageString = "mcgonagallScore7_10"
