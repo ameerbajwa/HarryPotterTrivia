@@ -189,6 +189,9 @@ class QuizzesViewController: UIViewController, UIScrollViewDelegate {
         quizPageControl.currentPage = Int(page)
     }
     
+    @IBAction func unwindFromQuizResultsScreen(_ seg: UIStoryboardSegue){
+    }
+    
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

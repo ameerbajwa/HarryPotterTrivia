@@ -75,8 +75,12 @@
                         <viewLayoutGuide key="safeArea" id="wQm-4j-I95"/>
                     </view>
                     <navigationItem key="navigationItem" id="43C-P1-gwt"/>
+                    <connections>
+                        <segue destination="MCv-dp-CQp" kind="unwind" identifier="unwindToQuizzesScreen" unwindAction="unwindFromQuizResultsScreen:" id="eqE-O6-93Y"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="53t-p2-7Ez" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="MCv-dp-CQp" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="4938" y="-19"/>
         </scene>
