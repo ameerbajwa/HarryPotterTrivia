@@ -25,6 +25,7 @@ class TakingQuizViewController: UIViewController {
     var choiceBButton = UIButton()
     var choiceCButton = UIButton()
     var choiceDButton = UIButton()
+    var nextButton = UIButton()
     var goldBackgroundColor: UIColor = UIColor(red: 255/255, green: 226/255, blue: 168/255, alpha: 1.0)
     
     var usersAnswers: [String] = []
@@ -56,6 +57,19 @@ class TakingQuizViewController: UIViewController {
         settingUpChoiceButtons(button: choiceCButton, topView: choiceBButton)
         settingUpChoiceButtons(button: choiceDButton, topView: choiceCButton)
         
+        nextButton.setTitle("Next", for: .normal)
+        nextButton.layer.cornerRadius = 5.0
+        nextButton.setTitleColor(UIColor.black, for: .normal)
+        nextButton.backgroundColor = goldBackgroundColor
+        nextButton.addTarget(self, action: #selector(nextButtonPressed), for: .touchUpInside)
+        self.view.addSubview(nextButton)
+        
+        nextButton.translatesAutoresizingMaskIntoConstraints = false
+        nextButton.topAnchor.constraint(equalTo: choiceDButton.bottomAnchor, constant: 20.0).isActive = true
+        nextButton.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 20.0).isActive = true
+        nextButton.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -20.0).isActive = true
+        nextButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -20.0).isActive = true
+        nextButton.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
     }
     
     func settingUpChoiceButtons(button: UIButton, topView: UIView) {
@@ -74,9 +88,9 @@ class TakingQuizViewController: UIViewController {
         button.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 20.0).isActive = true
         button.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -20.0).isActive = true
         button.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
-        if button == choiceDButton {
-            button.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -100.0).isActive = true
-        }
+//        if button == choiceDButton {
+//            button.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -100.0).isActive = true
+//        }
         
     }
     
@@ -100,68 +114,104 @@ class TakingQuizViewController: UIViewController {
     }
     
     func setQuestion() {
-        if questionNumber <= quizQuestions!.count {
-            questionLabel.text = quizQuestions?[questionNumber-1]["question"]
-            questionLabel.font = UIFont(name: Constants.HARRY_POTTER_FONT, size: 20.0)
-            questionLabel.textAlignment = .center
-            questionLabel.numberOfLines = 0
+        questionLabel.text = quizQuestions?[questionNumber-1]["question"]
+        questionLabel.font = UIFont(name: Constants.HARRY_POTTER_FONT, size: 20.0)
+        questionLabel.textAlignment = .center
+        questionLabel.numberOfLines = 0
 
-            self.questionImageView.addSubview(questionLabel)
-            questionLabel.translatesAutoresizingMaskIntoConstraints = false
-//            questionLabel.topAnchor.constraint(equalTo: questionImageView.topAnchor, constant: 150.0).isActive = true
-            questionLabel.leadingAnchor.constraint(equalTo: questionImageView.leadingAnchor, constant: 50.0).isActive = true
-            questionLabel.trailingAnchor.constraint(equalTo: questionImageView.trailingAnchor, constant: -50.0).isActive = true
-            questionLabel.centerXAnchor.constraint(equalTo: self.questionImageView.centerXAnchor).isActive = true
-            questionLabel.centerYAnchor.constraint(equalTo: self.questionImageView.centerYAnchor).isActive = true
-            if let choiceA = quizQuestions![questionNumber-1]["choice_A"] {
-                choiceAButton.setTitle(choiceA, for: .normal)
-            }
-            if let choiceB = quizQuestions![questionNumber-1]["choice_B"] {
-                choiceBButton.setTitle(choiceB, for: .normal)
-            }
-            if let choiceC = quizQuestions![questionNumber-1]["choice_C"] {
-                choiceCButton.setTitle(choiceC, for: .normal)
-            }
-            if let choiceD = quizQuestions![questionNumber-1]["choice_D"] {
-                choiceDButton.setTitle(choiceD, for: .normal)
-            }
-            
-            choiceAButton.backgroundColor = goldBackgroundColor
-            choiceBButton.backgroundColor = goldBackgroundColor
-            choiceCButton.backgroundColor = goldBackgroundColor
-            choiceDButton.backgroundColor = goldBackgroundColor
-        } else {
-            print(usersAnswers)
-            self.performSegue(withIdentifier: "quizResultSegue", sender: nil)
+        self.questionImageView.addSubview(questionLabel)
+        questionLabel.translatesAutoresizingMaskIntoConstraints = false
+        questionLabel.leadingAnchor.constraint(equalTo: questionImageView.leadingAnchor, constant: 50.0).isActive = true
+        questionLabel.trailingAnchor.constraint(equalTo: questionImageView.trailingAnchor, constant: -50.0).isActive = true
+        questionLabel.centerXAnchor.constraint(equalTo: self.questionImageView.centerXAnchor).isActive = true
+        questionLabel.centerYAnchor.constraint(equalTo: self.questionImageView.centerYAnchor).isActive = true
+        if let choiceA = quizQuestions?[questionNumber-1]["choice_A"] {
+            choiceAButton.setTitle(choiceA, for: .normal)
         }
+        if let choiceB = quizQuestions?[questionNumber-1]["choice_B"] {
+            choiceBButton.setTitle(choiceB, for: .normal)
+        }
+        if let choiceC = quizQuestions?[questionNumber-1]["choice_C"] {
+            choiceCButton.setTitle(choiceC, for: .normal)
+        }
+        if let choiceD = quizQuestions?[questionNumber-1]["choice_D"] {
+            choiceDButton.setTitle(choiceD, for: .normal)
+        }
+        
+        choiceAButton.backgroundColor = goldBackgroundColor
+        choiceBButton.backgroundColor = goldBackgroundColor
+        choiceCButton.backgroundColor = goldBackgroundColor
+        choiceDButton.backgroundColor = goldBackgroundColor
+        
+//        if questionNumber <= quizQuestions!.count {
+//
+//        } else {
+//            print(usersAnswers)
+//            self.performSegue(withIdentifier: "quizResultSegue", sender: nil)
+//        }
     }
     
     @objc func answerQuestion(_ sender: UIButton) {
         switch sender {
         case choiceAButton:
             choiceAButton.backgroundColor = UIColor.white
-            usersAnswers.append("A")
-            questionNumber += 1
-            setQuestion()
+            choiceBButton.backgroundColor = goldBackgroundColor
+            choiceCButton.backgroundColor = goldBackgroundColor
+            choiceDButton.backgroundColor = goldBackgroundColor
+//            usersAnswers.append("A")
+//            questionNumber += 1
+//            setQuestion()
         case choiceBButton:
             choiceBButton.backgroundColor = UIColor.white
-            usersAnswers.append("B")
-            questionNumber += 1
-            setQuestion()
+            choiceAButton.backgroundColor = goldBackgroundColor
+            choiceCButton.backgroundColor = goldBackgroundColor
+            choiceDButton.backgroundColor = goldBackgroundColor
+//            usersAnswers.append("B")
+//            questionNumber += 1
+//            setQuestion()
         case choiceCButton:
             choiceCButton.backgroundColor = UIColor.white
-            usersAnswers.append("C")
-            questionNumber += 1
-            setQuestion()
+            choiceAButton.backgroundColor = goldBackgroundColor
+            choiceBButton.backgroundColor = goldBackgroundColor
+            choiceDButton.backgroundColor = goldBackgroundColor
+//            usersAnswers.append("C")
+//            questionNumber += 1
+//            setQuestion()
         case choiceDButton:
             choiceDButton.backgroundColor = UIColor.white
-            usersAnswers.append("D")
-            questionNumber += 1
-            setQuestion()
+            choiceAButton.backgroundColor = goldBackgroundColor
+            choiceBButton.backgroundColor = goldBackgroundColor
+            choiceCButton.backgroundColor = goldBackgroundColor
+//            usersAnswers.append("D")
+//            questionNumber += 1
+//            setQuestion()
         default:
             break
         }
         
+    }
+    
+    @objc func nextButtonPressed(_ sender: UIButton) {
+        if choiceAButton.backgroundColor == UIColor.white {
+            usersAnswers.append("A")
+        } else if choiceBButton.backgroundColor == UIColor.white {
+            usersAnswers.append("B")
+        } else if choiceCButton.backgroundColor == UIColor.white {
+            usersAnswers.append("C")
+        } else if choiceDButton.backgroundColor == UIColor.white {
+            usersAnswers.append("D")
+        }
+        questionNumber += 1
+
+        if questionNumber < quizQuestions!.count {
+            setQuestion()
+        } else if questionNumber == quizQuestions!.count {
+            nextButton.setTitle("Finish", for: .normal)
+            setQuestion()
+        } else {
+            print(usersAnswers)
+            self.performSegue(withIdentifier: "quizResultSegue", sender: nil)
+        }
     }
 
     
