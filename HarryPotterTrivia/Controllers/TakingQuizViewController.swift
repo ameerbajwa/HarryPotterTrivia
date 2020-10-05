@@ -20,6 +20,7 @@ class TakingQuizViewController: UIViewController {
     let parchmentImage = UIImage(named: "CroppedParchmentRollImage")
     var questionImageView = UIImageView()
     let questionLabel = UILabel()
+    var questionNumberLabel = UILabel()
     
     var choiceAButton = UIButton()
     var choiceBButton = UIButton()
@@ -39,16 +40,37 @@ class TakingQuizViewController: UIViewController {
         settingQuestionScreen()
         settingUpQuestions()
         setQuestion()
-        // Do any additional setup after loading the view.
     }
     
     func settingQuestionScreen() {
+        
+        let quizNameLabel = UILabel()
+        quizNameLabel.text = "\(quizName!) Quiz"
+        quizNameLabel.font = UIFont(name: Constants.HARRY_POTTER_FONT, size: 20.0)
+        quizNameLabel.textAlignment = .center
+        quizNameLabel.textColor = goldBackgroundColor
+        
+        self.view.addSubview(quizNameLabel)
+        quizNameLabel.translatesAutoresizingMaskIntoConstraints = false
+        quizNameLabel.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 50.0).isActive = true
+        quizNameLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        quizNameLabel.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
+        
+        questionNumberLabel.font = UIFont(name: Constants.HARRY_POTTER_FONT, size: 18.0)
+        questionNumberLabel.textAlignment = .center
+        questionNumberLabel.textColor = goldBackgroundColor
+        
+        self.view.addSubview(questionNumberLabel)
+        questionNumberLabel.translatesAutoresizingMaskIntoConstraints = false
+        questionNumberLabel.topAnchor.constraint(equalTo: quizNameLabel.bottomAnchor, constant: 20.0).isActive = true
+        questionNumberLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        questionNumberLabel.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
+        
         questionImageView = UIImageView(image: parchmentImage)
         self.view.addSubview(questionImageView)
-//        questionImageView?.frame = CGRect(x: 20.0, y: 100.0, width: phoneWidth!-40.0, height: 350.0)
         
         questionImageView.translatesAutoresizingMaskIntoConstraints = false
-        questionImageView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 100.0).isActive = true
+        questionImageView.topAnchor.constraint(equalTo: questionNumberLabel.bottomAnchor, constant: 20.0).isActive = true
         questionImageView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 20.0).isActive = true
         questionImageView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -20.0).isActive = true
         
@@ -73,7 +95,6 @@ class TakingQuizViewController: UIViewController {
     }
     
     func settingUpChoiceButtons(button: UIButton, topView: UIView) {
-//        button.frame = CGRect(x: 20.0, y: y_position, width: Double(phoneWidth!)-40.0, height: 50.0)
         button.layer.cornerRadius = 5
         button.backgroundColor = goldBackgroundColor
         button.titleLabel?.font = UIFont(name: Constants.HARRY_POTTER_FONT, size: 15.0)
@@ -88,9 +109,6 @@ class TakingQuizViewController: UIViewController {
         button.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 20.0).isActive = true
         button.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -20.0).isActive = true
         button.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
-//        if button == choiceDButton {
-//            button.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -100.0).isActive = true
-//        }
         
     }
     
@@ -114,6 +132,9 @@ class TakingQuizViewController: UIViewController {
     }
     
     func setQuestion() {
+        
+        questionNumberLabel.text = "Question #\(questionNumber)"
+        
         questionLabel.text = quizQuestions?[questionNumber-1]["question"]
         questionLabel.font = UIFont(name: Constants.HARRY_POTTER_FONT, size: 20.0)
         questionLabel.textAlignment = .center
@@ -143,12 +164,6 @@ class TakingQuizViewController: UIViewController {
         choiceCButton.backgroundColor = goldBackgroundColor
         choiceDButton.backgroundColor = goldBackgroundColor
         
-//        if questionNumber <= quizQuestions!.count {
-//
-//        } else {
-//            print(usersAnswers)
-//            self.performSegue(withIdentifier: "quizResultSegue", sender: nil)
-//        }
     }
     
     @objc func answerQuestion(_ sender: UIButton) {
@@ -158,33 +173,21 @@ class TakingQuizViewController: UIViewController {
             choiceBButton.backgroundColor = goldBackgroundColor
             choiceCButton.backgroundColor = goldBackgroundColor
             choiceDButton.backgroundColor = goldBackgroundColor
-//            usersAnswers.append("A")
-//            questionNumber += 1
-//            setQuestion()
         case choiceBButton:
             choiceBButton.backgroundColor = UIColor.white
             choiceAButton.backgroundColor = goldBackgroundColor
             choiceCButton.backgroundColor = goldBackgroundColor
             choiceDButton.backgroundColor = goldBackgroundColor
-//            usersAnswers.append("B")
-//            questionNumber += 1
-//            setQuestion()
         case choiceCButton:
             choiceCButton.backgroundColor = UIColor.white
             choiceAButton.backgroundColor = goldBackgroundColor
             choiceBButton.backgroundColor = goldBackgroundColor
             choiceDButton.backgroundColor = goldBackgroundColor
-//            usersAnswers.append("C")
-//            questionNumber += 1
-//            setQuestion()
         case choiceDButton:
             choiceDButton.backgroundColor = UIColor.white
             choiceAButton.backgroundColor = goldBackgroundColor
             choiceBButton.backgroundColor = goldBackgroundColor
             choiceCButton.backgroundColor = goldBackgroundColor
-//            usersAnswers.append("D")
-//            questionNumber += 1
-//            setQuestion()
         default:
             break
         }
