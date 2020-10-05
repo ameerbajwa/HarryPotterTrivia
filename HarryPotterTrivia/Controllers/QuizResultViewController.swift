@@ -36,7 +36,7 @@ class QuizResultViewController: UIViewController {
     
     func settingUpResultPage(score: Int, percentage: CGFloat) {
         let scoreLabel = UILabel()
-        scoreLabel.text = "Quiz Score: \(score)/\(quizQuestions?.count)"
+        scoreLabel.text = "Quiz Score: \(score)/\(quizQuestions!.count)"
         scoreLabel.font = UIFont(name: Constants.HARRY_POTTER_FONT, size: 20.0)
         scoreLabel.textColor = goldBackgroundColor
         scoreLabel.textAlignment = .center
@@ -54,7 +54,7 @@ class QuizResultViewController: UIViewController {
         self.view.addSubview(frameView)
         
         frameView.translatesAutoresizingMaskIntoConstraints = false
-        frameView.topAnchor.constraint(equalTo: scoreLabel.bottomAnchor, constant: 100.0).isActive = true
+        frameView.topAnchor.constraint(equalTo: scoreLabel.bottomAnchor, constant: 50.0).isActive = true
         frameView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 30.0).isActive = true
         frameView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -30.0).isActive = true
                 
@@ -77,10 +77,10 @@ class QuizResultViewController: UIViewController {
         self.view.addSubview(resultImage)
         
         resultImage.translatesAutoresizingMaskIntoConstraints = false
-        resultImage.topAnchor.constraint(equalTo: frameView.topAnchor, constant: 30.0).isActive = true
-        resultImage.leadingAnchor.constraint(equalTo: frameView.leadingAnchor, constant: 15.0).isActive = true
-        resultImage.trailingAnchor.constraint(equalTo: frameView.trailingAnchor, constant: -15.0).isActive = true
-        resultImage.bottomAnchor.constraint(equalTo: frameView.bottomAnchor, constant: -15.0).isActive = true
+        resultImage.topAnchor.constraint(equalTo: frameView.topAnchor, constant: 45.0).isActive = true
+        resultImage.leadingAnchor.constraint(equalTo: frameView.leadingAnchor, constant: 30.0).isActive = true
+        resultImage.trailingAnchor.constraint(equalTo: frameView.trailingAnchor, constant: -30.0).isActive = true
+        resultImage.bottomAnchor.constraint(equalTo: frameView.bottomAnchor, constant: -45.0).isActive = true
         self.view.bringSubviewToFront(resultImage)
         
         scoreMessage.font = UIFont(name: Constants.HARRY_POTTER_FONT, size: 18.0)
