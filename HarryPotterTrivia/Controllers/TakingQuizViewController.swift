@@ -129,6 +129,13 @@ class TakingQuizViewController: UIViewController {
         default:
             break
         }
+        
+        if quizQuestions!.count > 10 {
+            quizQuestions = (0..<10).map { _ in quizQuestions?.randomElement()! as! [String : String] }
+        }
+        
+        print(quizQuestions)
+        
     }
     
     func setQuestion() {
