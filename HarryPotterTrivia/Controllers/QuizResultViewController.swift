@@ -64,7 +64,7 @@ class QuizResultViewController: UIViewController {
         if percentage < 0.4 {
             resultImageString = "snapeScore0_3"
             scoreMessage.text = Messages.BAD_SCORE_MSG
-        } else if percentage < 0.7 {
+        } else if percentage < 0.8 {
             resultImageString = "hermonieScore4_6"
             scoreMessage.text = Messages.DECENT_SCORE_MSG
         } else {

@@ -14,8 +14,8 @@ class TakingQuizViewController: UIViewController {
     var questionNumber: Int = 1
     var quizName: String?
     var quiz = Questions()
-    var quizQuestions: [[String:String]]?
-    var phoneWidth: CGFloat?
+    var quizQuestions = [[String:String]]()
+    var randomQuizQuestions = [[String:String]]()
     
     let parchmentImage = UIImage(named: "CroppedParchmentRollImage")
     var questionImageView = UIImageView()
@@ -39,7 +39,6 @@ class TakingQuizViewController: UIViewController {
         
         settingQuestionScreen()
         settingUpQuestions()
-        setQuestion()
     }
     
     func settingQuestionScreen() {
@@ -92,6 +91,7 @@ class TakingQuizViewController: UIViewController {
         nextButton.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -20.0).isActive = true
         nextButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -20.0).isActive = true
         nextButton.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
+        print("set up question screen")
     }
     
     func settingUpChoiceButtons(button: UIButton, topView: UIView) {
@@ -130,19 +130,25 @@ class TakingQuizViewController: UIViewController {
             break
         }
         
-        if quizQuestions!.count > 10 {
-            quizQuestions = (0..<10).map { _ in quizQuestions?.randomElement()! as! [String : String] }
+        if quizQuestions.count > 10 {
+            for _ in 0..<10 {
+                quizQuestions.shuffle()
+                randomQuizQuestions.append(quizQuestions.last!)
+                quizQuestions.removeLast()
+            }
+        } else {
+            randomQuizQuestions = quizQuestions
         }
-        
-        print(quizQuestions)
-        
+        print("set question list")
+        print(randomQuizQuestions)
+        setQuestion()
     }
     
     func setQuestion() {
         
         questionNumberLabel.text = "Question #\(questionNumber)"
         
-        questionLabel.text = quizQuestions?[questionNumber-1]["question"]
+        questionLabel.text = randomQuizQuestions[questionNumber-1]["question"]
         questionLabel.font = UIFont(name: Constants.HARRY_POTTER_FONT, size: 20.0)
         questionLabel.textAlignment = .center
         questionLabel.numberOfLines = 0
@@ -153,16 +159,16 @@ class TakingQuizViewController: UIViewController {
         questionLabel.trailingAnchor.constraint(equalTo: questionImageView.trailingAnchor, constant: -50.0).isActive = true
         questionLabel.centerXAnchor.constraint(equalTo: self.questionImageView.centerXAnchor).isActive = true
         questionLabel.centerYAnchor.constraint(equalTo: self.questionImageView.centerYAnchor).isActive = true
-        if let choiceA = quizQuestions?[questionNumber-1]["choice_A"] {
+        if let choiceA = randomQuizQuestions[questionNumber-1]["choice_A"] {
             choiceAButton.setTitle(choiceA, for: .normal)
         }
-        if let choiceB = quizQuestions?[questionNumber-1]["choice_B"] {
+        if let choiceB = randomQuizQuestions[questionNumber-1]["choice_B"] {
             choiceBButton.setTitle(choiceB, for: .normal)
         }
-        if let choiceC = quizQuestions?[questionNumber-1]["choice_C"] {
+        if let choiceC = randomQuizQuestions[questionNumber-1]["choice_C"] {
             choiceCButton.setTitle(choiceC, for: .normal)
         }
-        if let choiceD = quizQuestions?[questionNumber-1]["choice_D"] {
+        if let choiceD = randomQuizQuestions[questionNumber-1]["choice_D"] {
             choiceDButton.setTitle(choiceD, for: .normal)
         }
         
@@ -170,7 +176,7 @@ class TakingQuizViewController: UIViewController {
         choiceBButton.backgroundColor = goldBackgroundColor
         choiceCButton.backgroundColor = goldBackgroundColor
         choiceDButton.backgroundColor = goldBackgroundColor
-        
+        print("set question number \(questionNumber)")
     }
     
     @objc func answerQuestion(_ sender: UIButton) {
@@ -213,9 +219,9 @@ class TakingQuizViewController: UIViewController {
         }
         questionNumber += 1
 
-        if questionNumber < quizQuestions!.count {
+        if questionNumber < randomQuizQuestions.count {
             setQuestion()
-        } else if questionNumber == quizQuestions!.count {
+        } else if questionNumber == randomQuizQuestions.count {
             nextButton.setTitle("Finish", for: .normal)
             setQuestion()
         } else {
@@ -231,7 +237,7 @@ class TakingQuizViewController: UIViewController {
         if segue.identifier == "quizResultSegue" {
             if let vc = segue.destination as? QuizResultViewController {
                 vc.usersAnswers = usersAnswers
-                vc.quizQuestions = quizQuestions
+                vc.quizQuestions = randomQuizQuestions
             }
         }
     }
