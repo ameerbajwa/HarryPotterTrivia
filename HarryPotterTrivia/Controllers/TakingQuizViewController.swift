@@ -45,7 +45,7 @@ class TakingQuizViewController: UIViewController {
         
         let quizNameLabel = UILabel()
         quizNameLabel.text = "\(quizName!) Quiz"
-        quizNameLabel.font = UIFont(name: Constants.HARRY_POTTER_FONT, size: 20.0)
+        quizNameLabel.font = UIFont(name: Constants.HARRY_POTTER_FONT, size: 25.0)
         quizNameLabel.textAlignment = .center
         quizNameLabel.textColor = goldBackgroundColor
         
@@ -55,7 +55,7 @@ class TakingQuizViewController: UIViewController {
         quizNameLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
         quizNameLabel.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
         
-        questionNumberLabel.font = UIFont(name: Constants.HARRY_POTTER_FONT, size: 18.0)
+        questionNumberLabel.font = UIFont(name: Constants.HARRY_POTTER_FONT, size: 20.0)
         questionNumberLabel.textAlignment = .center
         questionNumberLabel.textColor = goldBackgroundColor
         
@@ -89,9 +89,8 @@ class TakingQuizViewController: UIViewController {
         nextButton.topAnchor.constraint(equalTo: choiceDButton.bottomAnchor, constant: 20.0).isActive = true
         nextButton.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 20.0).isActive = true
         nextButton.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -20.0).isActive = true
-        nextButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -20.0).isActive = true
-        nextButton.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
-        print("set up question screen")
+        nextButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -50.0).isActive = true
+        nextButton.heightAnchor.constraint(equalToConstant: 60.0).isActive = true
     }
     
     func settingUpChoiceButtons(button: UIButton, topView: UIView) {
@@ -108,7 +107,7 @@ class TakingQuizViewController: UIViewController {
         button.topAnchor.constraint(equalTo: topView.bottomAnchor, constant: 20.0).isActive = true
         button.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 20.0).isActive = true
         button.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -20.0).isActive = true
-        button.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
+        button.heightAnchor.constraint(equalToConstant: 60.0).isActive = true
         
     }
     
@@ -137,10 +136,9 @@ class TakingQuizViewController: UIViewController {
                 quizQuestions.removeLast()
             }
         } else {
+            quizQuestions.shuffle()
             randomQuizQuestions = quizQuestions
         }
-        print("set question list")
-        print(randomQuizQuestions)
         setQuestion()
     }
     
@@ -155,28 +153,43 @@ class TakingQuizViewController: UIViewController {
 
         self.questionImageView.addSubview(questionLabel)
         questionLabel.translatesAutoresizingMaskIntoConstraints = false
-        questionLabel.leadingAnchor.constraint(equalTo: questionImageView.leadingAnchor, constant: 50.0).isActive = true
-        questionLabel.trailingAnchor.constraint(equalTo: questionImageView.trailingAnchor, constant: -50.0).isActive = true
+        questionLabel.leadingAnchor.constraint(equalTo: questionImageView.leadingAnchor, constant: 30.0).isActive = true
+        questionLabel.trailingAnchor.constraint(equalTo: questionImageView.trailingAnchor, constant: -30.0).isActive = true
         questionLabel.centerXAnchor.constraint(equalTo: self.questionImageView.centerXAnchor).isActive = true
         questionLabel.centerYAnchor.constraint(equalTo: self.questionImageView.centerYAnchor).isActive = true
         if let choiceA = randomQuizQuestions[questionNumber-1]["choice_A"] {
             choiceAButton.setTitle(choiceA, for: .normal)
+            setQuestionChoiceLabel(button: choiceAButton)
         }
         if let choiceB = randomQuizQuestions[questionNumber-1]["choice_B"] {
             choiceBButton.setTitle(choiceB, for: .normal)
+            setQuestionChoiceLabel(button: choiceBButton)
         }
         if let choiceC = randomQuizQuestions[questionNumber-1]["choice_C"] {
             choiceCButton.setTitle(choiceC, for: .normal)
+            setQuestionChoiceLabel(button: choiceCButton)
         }
         if let choiceD = randomQuizQuestions[questionNumber-1]["choice_D"] {
             choiceDButton.setTitle(choiceD, for: .normal)
+            setQuestionChoiceLabel(button: choiceDButton)
         }
         
         choiceAButton.backgroundColor = goldBackgroundColor
         choiceBButton.backgroundColor = goldBackgroundColor
         choiceCButton.backgroundColor = goldBackgroundColor
         choiceDButton.backgroundColor = goldBackgroundColor
-        print("set question number \(questionNumber)")
+    }
+    
+    func setQuestionChoiceLabel(button: UIButton) {
+        button.titleLabel?.font = UIFont(name: Constants.HARRY_POTTER_FONT, size: 14.0)
+        button.titleLabel?.numberOfLines = 0
+        button.titleLabel?.adjustsFontSizeToFitWidth = true
+        button.titleLabel?.minimumScaleFactor = 0.85
+        button.titleLabel?.translatesAutoresizingMaskIntoConstraints = false
+        button.titleLabel?.leadingAnchor.constraint(equalTo: button.leadingAnchor, constant: 10.0).isActive = true
+        button.titleLabel?.trailingAnchor.constraint(equalTo: button.trailingAnchor, constant: -10.0).isActive = true
+        button.titleLabel?.topAnchor.constraint(equalTo: button.topAnchor, constant: 10.0).isActive = true
+        button.titleLabel?.bottomAnchor.constraint(equalTo: button.bottomAnchor, constant: -10.0).isActive = true
     }
     
     @objc func answerQuestion(_ sender: UIButton) {
