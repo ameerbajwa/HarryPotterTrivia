@@ -87,10 +87,11 @@ class TakingQuizViewController: UIViewController {
         
         nextButton.translatesAutoresizingMaskIntoConstraints = false
         nextButton.topAnchor.constraint(equalTo: choiceDButton.bottomAnchor, constant: 20.0).isActive = true
-        nextButton.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 20.0).isActive = true
-        nextButton.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -20.0).isActive = true
+        nextButton.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 100.0).isActive = true
+        nextButton.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -100.0).isActive = true
         nextButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -50.0).isActive = true
         nextButton.heightAnchor.constraint(equalToConstant: 60.0).isActive = true
+        
     }
     
     func settingUpChoiceButtons(button: UIButton, topView: UIView) {
@@ -145,6 +146,7 @@ class TakingQuizViewController: UIViewController {
     func setQuestion() {
         
         questionNumberLabel.text = "Question #\(questionNumber)"
+        questionNumberLabel.fadeTransition(1)
         
         questionLabel.text = randomQuizQuestions[questionNumber-1]["question"]
         questionLabel.font = UIFont(name: Constants.HARRY_POTTER_FONT, size: 20.0)
@@ -157,6 +159,9 @@ class TakingQuizViewController: UIViewController {
         questionLabel.trailingAnchor.constraint(equalTo: questionImageView.trailingAnchor, constant: -30.0).isActive = true
         questionLabel.centerXAnchor.constraint(equalTo: self.questionImageView.centerXAnchor).isActive = true
         questionLabel.centerYAnchor.constraint(equalTo: self.questionImageView.centerYAnchor).isActive = true
+        
+        questionLabel.fadeTransition(1)
+        
         if let choiceA = randomQuizQuestions[questionNumber-1]["choice_A"] {
             choiceAButton.setTitle(choiceA, for: .normal)
             setQuestionChoiceLabel(button: choiceAButton)
@@ -178,6 +183,7 @@ class TakingQuizViewController: UIViewController {
         choiceBButton.backgroundColor = goldBackgroundColor
         choiceCButton.backgroundColor = goldBackgroundColor
         choiceDButton.backgroundColor = goldBackgroundColor
+        
     }
     
     func setQuestionChoiceLabel(button: UIButton) {
@@ -190,6 +196,7 @@ class TakingQuizViewController: UIViewController {
         button.titleLabel?.trailingAnchor.constraint(equalTo: button.trailingAnchor, constant: -10.0).isActive = true
         button.titleLabel?.topAnchor.constraint(equalTo: button.topAnchor, constant: 10.0).isActive = true
         button.titleLabel?.bottomAnchor.constraint(equalTo: button.bottomAnchor, constant: -10.0).isActive = true
+        button.titleLabel?.fadeTransition(1)
     }
     
     @objc func answerQuestion(_ sender: UIButton) {
@@ -256,4 +263,15 @@ class TakingQuizViewController: UIViewController {
     }
     
 
+}
+
+extension UILabel {
+    func fadeTransition(_ duration:CFTimeInterval) {
+        let animation = CATransition()
+        animation.timingFunction = CAMediaTimingFunction(name:
+            CAMediaTimingFunctionName.easeInEaseOut)
+        animation.type = CATransitionType.fade
+        animation.duration = duration
+        layer.add(animation, forKey: CATransitionType.fade.rawValue)
+    }
 }
