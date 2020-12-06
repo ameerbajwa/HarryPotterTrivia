@@ -42,13 +42,14 @@ class HomePageViewController: UIViewController {
         titleLabel.numberOfLines = 0
         titleLabel.font = UIFont(name: Constants.HARRY_POTTER_FONT, size: 25.0)
         titleLabel.textColor = UIColor.white
+        titleLabel.textAlignment = .center
         titleLabel.text = Constants.HARRY_POTTER_TRIVIA_TITLE
         
         self.view.addSubview(titleLabel)
         
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 100.0).isActive = true
-        titleLabel.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -100.0).isActive = true
+        titleLabel.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 20.0).isActive = true
+        titleLabel.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -20.0).isActive = true
         titleLabel.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 100.0).isActive = true
         titleLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
         
@@ -65,8 +66,8 @@ class HomePageViewController: UIViewController {
         self.view.addSubview(messageLabel)
 
         messageLabel.translatesAutoresizingMaskIntoConstraints = false
-        messageLabel.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 50.0).isActive = true
-        messageLabel.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -50.0).isActive = true
+        messageLabel.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 20.0).isActive = true
+        messageLabel.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -20.0).isActive = true
         messageLabel.topAnchor.constraint(equalTo: self.titleLabel.bottomAnchor, constant: 100.0).isActive = true
         messageLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
     }

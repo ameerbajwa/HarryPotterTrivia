@@ -47,13 +47,14 @@ class TakingQuizViewController: UIViewController {
         quizNameLabel.text = "\(quizName!) Quiz"
         quizNameLabel.font = UIFont(name: Constants.HARRY_POTTER_FONT, size: 25.0)
         quizNameLabel.textAlignment = .center
+        quizNameLabel.numberOfLines = 0
         quizNameLabel.textColor = goldBackgroundColor
         
         self.view.addSubview(quizNameLabel)
         quizNameLabel.translatesAutoresizingMaskIntoConstraints = false
         quizNameLabel.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 50.0).isActive = true
         quizNameLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-        quizNameLabel.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
+        quizNameLabel.heightAnchor.constraint(equalToConstant: 30.0).isActive = true
         
         questionNumberLabel.font = UIFont(name: Constants.HARRY_POTTER_FONT, size: 20.0)
         questionNumberLabel.textAlignment = .center
@@ -236,6 +237,8 @@ class TakingQuizViewController: UIViewController {
             usersAnswers.append("C")
         } else if choiceDButton.backgroundColor == UIColor.white {
             usersAnswers.append("D")
+        } else {
+            usersAnswers.append("")
         }
         questionNumber += 1
 

@@ -28,10 +28,11 @@ class QuizzesViewController: UIViewController, UIScrollViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(self.view.frame.height)
         
         self.navigationController?.isNavigationBarHidden = true
         
-        numberOfPages = Int((Double(HarryPotterQuizNames.names.count)/6.0).rounded(.up))
+        numberOfPages = self.view.frame.height > 700.0 ? Int((Double(HarryPotterQuizNames.names.count)/6.0).rounded(.up)) : Int((Double(HarryPotterQuizNames.names.count)/4.0).rounded(.up))
         quizPageControl.numberOfPages = numberOfPages
         
         assignBackground()
@@ -48,17 +49,17 @@ class QuizzesViewController: UIViewController, UIScrollViewDelegate {
         quizScrollView.isScrollEnabled = true
         quizScrollView.isUserInteractionEnabled = true
         quizScrollView.delegate = self
-        quizScrollView.frame = CGRect(x: 0.0, y: 200.0, width: self.view.bounds.size.width, height: self.view.bounds.size.height-300.0)
-        quizScrollView.contentSize = CGSize(width: self.view.frame.width * CGFloat(numberOfPages), height: self.view.frame.height-300.0)
+        quizScrollView.frame = CGRect(x: 0.0, y: 200.0, width: self.view.bounds.size.width, height: self.view.bounds.size.height-270.0)
+        quizScrollView.contentSize = CGSize(width: self.view.frame.width * CGFloat(numberOfPages), height: self.view.frame.height-270.0)
         self.view.addSubview(quizScrollView)
         
         for _ in 1...numberOfPages {
             quizViews.append(UIView())
         }
 
-        for quizIndex in 0..<HarryPotterQuizNames.names.count {
+        for quizIndex in 1...HarryPotterQuizNames.names.count {
             quizButtons.append(UIButton())
-            if quizIndex % 2 == 0 {
+            if quizIndex % 2 == 1 {
                 quizStackViews.append(UIStackView())
             }
         }
@@ -90,7 +91,7 @@ class QuizzesViewController: UIViewController, UIScrollViewDelegate {
         messageLabel.translatesAutoresizingMaskIntoConstraints = false
         messageLabel.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 20.0).isActive = true
         messageLabel.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -20.0).isActive = true
-        messageLabel.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 65.0).isActive = true
+        messageLabel.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 50.0).isActive = true
         messageLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
         messageLabel.heightAnchor.constraint(equalToConstant: 120.0).isActive = true
     }
@@ -99,7 +100,8 @@ class QuizzesViewController: UIViewController, UIScrollViewDelegate {
         
         var stackViewStartIndex: Int = 0
         var stackViewEndIndex: Int = 3
-
+        stackViewEndIndex = self.view.frame.height > 700.0 ? 3: 2
+        
         var quizButtonStartIndex: Int = 0
         var quizButtonEndIndex: Int = 2
         
@@ -139,8 +141,8 @@ class QuizzesViewController: UIViewController, UIScrollViewDelegate {
 
             }
             
-            stackViewStartIndex += 3
-            stackViewEndIndex += 3
+            stackViewStartIndex += 2
+            stackViewEndIndex += 2
 
             if stackViewEndIndex > quizStackViews.count {
                 stackViewEndIndex = quizStackViews.count
