@@ -164,19 +164,19 @@ class TakingQuizViewController: UIViewController {
         questionLabel.fadeTransition(1)
         
         if let choiceA = randomQuizQuestions[questionNumber-1]["choice_A"] {
-            choiceAButton.setTitle(choiceA, for: .normal)
+            choiceAButton.setTitle("A. \(choiceA)", for: .normal)
             setQuestionChoiceLabel(button: choiceAButton)
         }
         if let choiceB = randomQuizQuestions[questionNumber-1]["choice_B"] {
-            choiceBButton.setTitle(choiceB, for: .normal)
+            choiceBButton.setTitle("B. \(choiceB)", for: .normal)
             setQuestionChoiceLabel(button: choiceBButton)
         }
         if let choiceC = randomQuizQuestions[questionNumber-1]["choice_C"] {
-            choiceCButton.setTitle(choiceC, for: .normal)
+            choiceCButton.setTitle("C. \(choiceC)", for: .normal)
             setQuestionChoiceLabel(button: choiceCButton)
         }
         if let choiceD = randomQuizQuestions[questionNumber-1]["choice_D"] {
-            choiceDButton.setTitle(choiceD, for: .normal)
+            choiceDButton.setTitle("D. \(choiceD)", for: .normal)
             setQuestionChoiceLabel(button: choiceDButton)
         }
         
