@@ -45,32 +45,39 @@ class TakingQuizViewController: UIViewController {
         
         let quizNameLabel = UILabel()
         quizNameLabel.text = "\(quizName!) Quiz"
-        quizNameLabel.font = UIFont(name: Constants.HARRY_POTTER_FONT, size: 25.0)
+        quizNameLabel.font = self.view.frame.size.height > 700 ? UIFont(name: Constants.HARRY_POTTER_FONT, size: 25.0) : UIFont(name: Constants.HARRY_POTTER_FONT, size: 20.0)
         quizNameLabel.textAlignment = .center
         quizNameLabel.numberOfLines = 0
         quizNameLabel.textColor = goldBackgroundColor
         
         self.view.addSubview(quizNameLabel)
         quizNameLabel.translatesAutoresizingMaskIntoConstraints = false
-        quizNameLabel.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 50.0).isActive = true
-        quizNameLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-        quizNameLabel.heightAnchor.constraint(equalToConstant: 30.0).isActive = true
         
-        questionNumberLabel.font = UIFont(name: Constants.HARRY_POTTER_FONT, size: 20.0)
+        quizNameLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        if self.view.frame.size.height > 700 {
+            quizNameLabel.heightAnchor.constraint(equalToConstant: 30.0).isActive = true
+            quizNameLabel.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 75.0).isActive = true
+        } else {
+            quizNameLabel.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
+            quizNameLabel.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 30.0).isActive = true
+        }
+        
+        
+        questionNumberLabel.font = UIFont(name: Constants.HARRY_POTTER_FONT, size: 14.0)
         questionNumberLabel.textAlignment = .center
         questionNumberLabel.textColor = goldBackgroundColor
         
         self.view.addSubview(questionNumberLabel)
         questionNumberLabel.translatesAutoresizingMaskIntoConstraints = false
-        questionNumberLabel.topAnchor.constraint(equalTo: quizNameLabel.bottomAnchor, constant: 20.0).isActive = true
+        questionNumberLabel.topAnchor.constraint(equalTo: quizNameLabel.bottomAnchor, constant: 10.0).isActive = true
         questionNumberLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-        questionNumberLabel.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
+        questionNumberLabel.heightAnchor.constraint(equalToConstant: 15.0).isActive = true
         
         questionImageView = UIImageView(image: parchmentImage)
         self.view.addSubview(questionImageView)
         
         questionImageView.translatesAutoresizingMaskIntoConstraints = false
-        questionImageView.topAnchor.constraint(equalTo: questionNumberLabel.bottomAnchor, constant: 20.0).isActive = true
+        questionImageView.topAnchor.constraint(equalTo: questionNumberLabel.bottomAnchor, constant: 10.0).isActive = true
         questionImageView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 20.0).isActive = true
         questionImageView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -20.0).isActive = true
         
@@ -88,10 +95,15 @@ class TakingQuizViewController: UIViewController {
         
         nextButton.translatesAutoresizingMaskIntoConstraints = false
         nextButton.topAnchor.constraint(equalTo: choiceDButton.bottomAnchor, constant: 20.0).isActive = true
-        nextButton.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 100.0).isActive = true
-        nextButton.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -100.0).isActive = true
-        nextButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -50.0).isActive = true
-        nextButton.heightAnchor.constraint(equalToConstant: 60.0).isActive = true
+        nextButton.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 50.0).isActive = true
+        nextButton.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -50.0).isActive = true
+        if self.view.frame.size.height > 700.0 {
+            nextButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -50.0).isActive = true
+        } else {
+            nextButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -20.0).isActive = true
+        }
+        
+        nextButton.heightAnchor.constraint(equalToConstant: 25.0).isActive = true
         
     }
     
@@ -109,7 +121,7 @@ class TakingQuizViewController: UIViewController {
         button.topAnchor.constraint(equalTo: topView.bottomAnchor, constant: 20.0).isActive = true
         button.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 20.0).isActive = true
         button.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -20.0).isActive = true
-        button.heightAnchor.constraint(equalToConstant: 60.0).isActive = true
+        button.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
         
     }
     
@@ -150,7 +162,9 @@ class TakingQuizViewController: UIViewController {
         questionNumberLabel.fadeTransition(1)
         
         questionLabel.text = randomQuizQuestions[questionNumber-1]["question"]
-        questionLabel.font = UIFont(name: Constants.HARRY_POTTER_FONT, size: 20.0)
+        questionLabel.font = UIFont(name: Constants.HARRY_POTTER_FONT, size: 16.0)
+        questionLabel.adjustsFontSizeToFitWidth = true
+        questionLabel.minimumScaleFactor = 0.50
         questionLabel.textAlignment = .center
         questionLabel.numberOfLines = 0
 
@@ -191,12 +205,12 @@ class TakingQuizViewController: UIViewController {
         button.titleLabel?.font = UIFont(name: Constants.HARRY_POTTER_FONT, size: 14.0)
         button.titleLabel?.numberOfLines = 0
         button.titleLabel?.adjustsFontSizeToFitWidth = true
-        button.titleLabel?.minimumScaleFactor = 0.85
+        button.titleLabel?.minimumScaleFactor = 0.50
         button.titleLabel?.translatesAutoresizingMaskIntoConstraints = false
-        button.titleLabel?.leadingAnchor.constraint(equalTo: button.leadingAnchor, constant: 10.0).isActive = true
-        button.titleLabel?.trailingAnchor.constraint(equalTo: button.trailingAnchor, constant: -10.0).isActive = true
-        button.titleLabel?.topAnchor.constraint(equalTo: button.topAnchor, constant: 10.0).isActive = true
-        button.titleLabel?.bottomAnchor.constraint(equalTo: button.bottomAnchor, constant: -10.0).isActive = true
+        button.titleLabel?.leadingAnchor.constraint(equalTo: button.leadingAnchor, constant: 5.0).isActive = true
+        button.titleLabel?.trailingAnchor.constraint(equalTo: button.trailingAnchor, constant: -5.0).isActive = true
+        button.titleLabel?.topAnchor.constraint(equalTo: button.topAnchor, constant: 5.0).isActive = true
+        button.titleLabel?.bottomAnchor.constraint(equalTo: button.bottomAnchor, constant: -5.0).isActive = true
         button.titleLabel?.fadeTransition(1)
     }
     
@@ -207,21 +221,37 @@ class TakingQuizViewController: UIViewController {
             choiceBButton.backgroundColor = goldBackgroundColor
             choiceCButton.backgroundColor = goldBackgroundColor
             choiceDButton.backgroundColor = goldBackgroundColor
+            choiceAButton.titleLabel?.font = UIFont(name: Constants.HARRY_POTTER_BOLD_FONT, size: 14.0)
+            choiceBButton.titleLabel?.font = UIFont(name: Constants.HARRY_POTTER_FONT, size: 14.0)
+            choiceCButton.titleLabel?.font = UIFont(name: Constants.HARRY_POTTER_FONT, size: 14.0)
+            choiceDButton.titleLabel?.font = UIFont(name: Constants.HARRY_POTTER_FONT, size: 14.0)
         case choiceBButton:
             choiceBButton.backgroundColor = UIColor.white
             choiceAButton.backgroundColor = goldBackgroundColor
             choiceCButton.backgroundColor = goldBackgroundColor
             choiceDButton.backgroundColor = goldBackgroundColor
+            choiceBButton.titleLabel?.font = UIFont(name: Constants.HARRY_POTTER_BOLD_FONT, size: 14.0)
+            choiceAButton.titleLabel?.font = UIFont(name: Constants.HARRY_POTTER_FONT, size: 14.0)
+            choiceCButton.titleLabel?.font = UIFont(name: Constants.HARRY_POTTER_FONT, size: 14.0)
+            choiceDButton.titleLabel?.font = UIFont(name: Constants.HARRY_POTTER_FONT, size: 14.0)
         case choiceCButton:
             choiceCButton.backgroundColor = UIColor.white
             choiceAButton.backgroundColor = goldBackgroundColor
             choiceBButton.backgroundColor = goldBackgroundColor
             choiceDButton.backgroundColor = goldBackgroundColor
+            choiceCButton.titleLabel?.font = UIFont(name: Constants.HARRY_POTTER_BOLD_FONT, size: 14.0)
+            choiceBButton.titleLabel?.font = UIFont(name: Constants.HARRY_POTTER_FONT, size: 14.0)
+            choiceAButton.titleLabel?.font = UIFont(name: Constants.HARRY_POTTER_FONT, size: 14.0)
+            choiceDButton.titleLabel?.font = UIFont(name: Constants.HARRY_POTTER_FONT, size: 14.0)
         case choiceDButton:
             choiceDButton.backgroundColor = UIColor.white
             choiceAButton.backgroundColor = goldBackgroundColor
             choiceBButton.backgroundColor = goldBackgroundColor
             choiceCButton.backgroundColor = goldBackgroundColor
+            choiceDButton.titleLabel?.font = UIFont(name: Constants.HARRY_POTTER_BOLD_FONT, size: 14.0)
+            choiceBButton.titleLabel?.font = UIFont(name: Constants.HARRY_POTTER_FONT, size: 14.0)
+            choiceCButton.titleLabel?.font = UIFont(name: Constants.HARRY_POTTER_FONT, size: 14.0)
+            choiceAButton.titleLabel?.font = UIFont(name: Constants.HARRY_POTTER_FONT, size: 14.0)
         default:
             break
         }
@@ -264,8 +294,6 @@ class TakingQuizViewController: UIViewController {
             }
         }
     }
-    
-
 }
 
 extension UILabel {
