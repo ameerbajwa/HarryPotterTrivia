@@ -44,7 +44,11 @@ class QuizResultViewController: UIViewController {
         
         self.view.addSubview(scoreLabel)
         scoreLabel.translatesAutoresizingMaskIntoConstraints = false
-        scoreLabel.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 100.0).isActive = true
+        if self.view.frame.size.height > 700.0 {
+            scoreLabel.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 100.0).isActive = true
+        } else {
+            scoreLabel.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 25.0).isActive = true
+        }
         scoreLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
         
         let frame = UIImage(named: "frame")
@@ -54,7 +58,7 @@ class QuizResultViewController: UIViewController {
         self.view.addSubview(frameView)
         
         frameView.translatesAutoresizingMaskIntoConstraints = false
-        frameView.topAnchor.constraint(equalTo: scoreLabel.bottomAnchor, constant: 50.0).isActive = true
+        frameView.topAnchor.constraint(equalTo: scoreLabel.bottomAnchor, constant: 25.0).isActive = true
         frameView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 30.0).isActive = true
         frameView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -30.0).isActive = true
                 
@@ -74,8 +78,10 @@ class QuizResultViewController: UIViewController {
         
         let resultImage = UIImageView()
         resultImage.image = UIImage(named: resultImageString)
+//        resultImage.image = resizeImage(image: resultImage.image, targetSize: <#T##CGSize#>)
         self.view.addSubview(resultImage)
         
+        resultImage.autoresizesSubviews = true
         resultImage.translatesAutoresizingMaskIntoConstraints = false
         resultImage.topAnchor.constraint(equalTo: frameView.topAnchor, constant: 45.0).isActive = true
         resultImage.leadingAnchor.constraint(equalTo: frameView.leadingAnchor, constant: 30.0).isActive = true
@@ -90,7 +96,7 @@ class QuizResultViewController: UIViewController {
         
         self.view.addSubview(scoreMessage)
         scoreMessage.translatesAutoresizingMaskIntoConstraints = false
-        scoreMessage.topAnchor.constraint(equalTo: frameView.bottomAnchor, constant: 50.0).isActive = true
+        scoreMessage.topAnchor.constraint(equalTo: frameView.bottomAnchor, constant: 25.0).isActive = true
         scoreMessage.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 20.0).isActive = true
         scoreMessage.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -20.0).isActive = true
         
@@ -104,7 +110,11 @@ class QuizResultViewController: UIViewController {
         
         self.view.addSubview(backButton)
         backButton.translatesAutoresizingMaskIntoConstraints = false
-        backButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -50.0).isActive = true
+        if self.view.frame.size.height > 700.0 {
+            backButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -100.0).isActive = true
+        } else {
+            backButton.topAnchor.constraint(equalTo: scoreMessage.bottomAnchor, constant: 25.0).isActive = true
+        }
         backButton.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 20.0).isActive = true
         backButton.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -20.0).isActive = true
     }
@@ -113,6 +123,32 @@ class QuizResultViewController: UIViewController {
         DispatchQueue.main.async {
             self.performSegue(withIdentifier: "unwindToQuizzesScreen", sender: nil)
         }
+    }
+    
+     func resizeImage(image: UIImage, targetSize: CGSize) -> UIImage {
+        let size = image.size
+
+        let widthRatio  = targetSize.width  / size.width
+        let heightRatio = targetSize.height / size.height
+
+        // Figure out what our orientation is, and use that to form the rectangle
+        var newSize: CGSize
+        if(widthRatio > heightRatio) {
+            newSize = CGSize(width: size.width * heightRatio, height: size.height * heightRatio)
+        } else {
+            newSize = CGSize(width: size.width * widthRatio,  height: size.height * widthRatio)
+        }
+
+        // This is the rect that we've calculated out and this is what is actually used below
+        let rect = CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height)
+
+        // Actually do the resizing to the rect using the ImageContext stuff
+        UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
+        image.draw(in: rect)
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+
+        return newImage!
     }
     
 

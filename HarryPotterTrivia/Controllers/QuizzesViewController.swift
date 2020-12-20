@@ -91,7 +91,11 @@ class QuizzesViewController: UIViewController, UIScrollViewDelegate {
         messageLabel.translatesAutoresizingMaskIntoConstraints = false
         messageLabel.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 20.0).isActive = true
         messageLabel.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -20.0).isActive = true
-        messageLabel.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 50.0).isActive = true
+        if self.view.frame.size.height > 700.0 {
+            messageLabel.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 50.0).isActive = true
+        } else {
+            messageLabel.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 30.0).isActive = true
+        }
         messageLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
         messageLabel.heightAnchor.constraint(equalToConstant: 120.0).isActive = true
     }

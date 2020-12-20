@@ -144,7 +144,7 @@ class TakingQuizViewController: UIViewController {
         }
         
         if quizQuestions.count > 10 {
-            for _ in 0..<10 {
+            for _ in 0..<3 { // 10
                 quizQuestions.shuffle()
                 randomQuizQuestions.append(quizQuestions.last!)
                 quizQuestions.removeLast()
