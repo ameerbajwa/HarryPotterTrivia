@@ -17,6 +17,8 @@ class HomePageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationController?.isToolbarHidden = true
+        
         assignBackgroundImage()
         assignTitle()
         assignMessage()

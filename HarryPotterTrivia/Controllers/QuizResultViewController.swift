@@ -50,13 +50,12 @@ class QuizResultViewController: UIViewController {
             scoreLabel.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 25.0).isActive = true
         }
         scoreLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-        
+                
         let frame = UIImage(named: "frame")
         
         let frameView = UIImageView()
         frameView.image = frame
         self.view.addSubview(frameView)
-        
         frameView.translatesAutoresizingMaskIntoConstraints = false
         frameView.topAnchor.constraint(equalTo: scoreLabel.bottomAnchor, constant: 25.0).isActive = true
         frameView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 30.0).isActive = true
@@ -78,7 +77,6 @@ class QuizResultViewController: UIViewController {
         
         let resultImage = UIImageView()
         resultImage.image = UIImage(named: resultImageString)
-//        resultImage.image = resizeImage(image: resultImage.image, targetSize: <#T##CGSize#>)
         self.view.addSubview(resultImage)
         
         resultImage.autoresizesSubviews = true
@@ -88,7 +86,7 @@ class QuizResultViewController: UIViewController {
         resultImage.trailingAnchor.constraint(equalTo: frameView.trailingAnchor, constant: -30.0).isActive = true
         resultImage.bottomAnchor.constraint(equalTo: frameView.bottomAnchor, constant: -45.0).isActive = true
         self.view.bringSubviewToFront(resultImage)
-        
+                
         scoreMessage.font = UIFont(name: Constants.HARRY_POTTER_FONT, size: 18.0)
         scoreMessage.textColor = goldBackgroundColor
         scoreMessage.numberOfLines = 0
@@ -99,7 +97,7 @@ class QuizResultViewController: UIViewController {
         scoreMessage.topAnchor.constraint(equalTo: frameView.bottomAnchor, constant: 25.0).isActive = true
         scoreMessage.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 20.0).isActive = true
         scoreMessage.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -20.0).isActive = true
-        
+                
         let backButton = UIButton()
         backButton.setTitle("Back to Quizzes", for: .normal)
         backButton.setTitleColor(UIColor.black, for: .normal)
@@ -117,6 +115,7 @@ class QuizResultViewController: UIViewController {
         }
         backButton.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 20.0).isActive = true
         backButton.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -20.0).isActive = true
+        
     }
     
     @objc func backButtonPressed() {
