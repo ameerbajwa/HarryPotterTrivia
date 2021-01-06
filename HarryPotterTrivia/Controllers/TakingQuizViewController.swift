@@ -26,7 +26,9 @@ class TakingQuizViewController: UIViewController {
     var choiceBButton = UIButton()
     var choiceCButton = UIButton()
     var choiceDButton = UIButton()
+    var quitButton = UIButton()
     var nextButton = UIButton()
+    var buttonStackView = UIStackView()
     var goldBackgroundColor: UIColor = UIColor(red: 255/255, green: 226/255, blue: 168/255, alpha: 1.0)
     
     var usersAnswers: [String] = []
@@ -86,24 +88,49 @@ class TakingQuizViewController: UIViewController {
         settingUpChoiceButtons(button: choiceCButton, topView: choiceBButton)
         settingUpChoiceButtons(button: choiceDButton, topView: choiceCButton)
         
+        quitButton.setTitle("Quit Quiz", for: .normal)
+        quitButton.layer.cornerRadius = 5.0
+        quitButton.setTitleColor(UIColor.black, for: .normal)
+        quitButton.backgroundColor = goldBackgroundColor
+        quitButton.addTarget(self, action: #selector(quitButtonPressed), for: .touchUpInside)
+//        self.view.addSubview(quitButton)
+        
+        
         nextButton.setTitle("Next", for: .normal)
         nextButton.layer.cornerRadius = 5.0
         nextButton.setTitleColor(UIColor.black, for: .normal)
         nextButton.backgroundColor = goldBackgroundColor
         nextButton.addTarget(self, action: #selector(nextButtonPressed), for: .touchUpInside)
-        self.view.addSubview(nextButton)
+//        self.view.addSubview(nextButton)
         
-        nextButton.translatesAutoresizingMaskIntoConstraints = false
-        nextButton.topAnchor.constraint(equalTo: choiceDButton.bottomAnchor, constant: 20.0).isActive = true
-        nextButton.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 50.0).isActive = true
-        nextButton.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -50.0).isActive = true
+        buttonStackView.addArrangedSubview(quitButton)
+        buttonStackView.addArrangedSubview(nextButton)
+        buttonStackView.axis = .horizontal
+        buttonStackView.distribution = .fillEqually
+        buttonStackView.spacing = 50.0
+        self.view.addSubview(buttonStackView)
+
+        buttonStackView.translatesAutoresizingMaskIntoConstraints = false
+        buttonStackView.topAnchor.constraint(equalTo: choiceDButton.bottomAnchor, constant: 20.0).isActive = true
+        buttonStackView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 50.0).isActive = true
+        buttonStackView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -50.0).isActive = true
         if self.view.frame.size.height > 700.0 {
-            nextButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -50.0).isActive = true
+            buttonStackView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -50.0).isActive = true
         } else {
-            nextButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -20.0).isActive = true
+            buttonStackView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -20.0).isActive = true
         }
         
-        nextButton.heightAnchor.constraint(equalToConstant: 25.0).isActive = true
+//        nextButton.translatesAutoresizingMaskIntoConstraints = false
+//        nextButton.topAnchor.constraint(equalTo: choiceDButton.bottomAnchor, constant: 20.0).isActive = true
+//        nextButton.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 50.0).isActive = true
+//        nextButton.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -50.0).isActive = true
+//        if self.view.frame.size.height > 700.0 {
+//            nextButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -50.0).isActive = true
+//        } else {
+//            nextButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -20.0).isActive = true
+//        }
+//
+//        nextButton.heightAnchor.constraint(equalToConstant: 25.0).isActive = true
         
     }
     
@@ -280,6 +307,12 @@ class TakingQuizViewController: UIViewController {
         } else {
             print(usersAnswers)
             self.performSegue(withIdentifier: "quizResultSegue", sender: nil)
+        }
+    }
+    
+    @objc func quitButtonPressed(_ sender: UIButton) {
+        DispatchQueue.main.async {
+            self.performSegue(withIdentifier: "unwindToQuizzesScreen", sender: nil)
         }
     }
 

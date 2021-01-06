@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="i5W-pl-brv">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cgs-HS-jx4">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -14,15 +14,6 @@
                     <view key="view" contentMode="scaleToFill" id="Kpi-Ia-rak">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0SC-Vc-exh">
-                                <rect key="frame" x="186" y="438" width="42" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="o4C-9Z-wFd"/>
                     </view>
@@ -33,7 +24,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yG7-NM-Whp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1918.840579710145" y="-19.419642857142858"/>
+            <point key="canvasLocation" x="2828.985507246377" y="-19.419642857142858"/>
         </scene>
         <!--Quizzes View Controller-->
         <scene sceneID="shK-9W-4ZF">
@@ -52,7 +43,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6XH-zY-6rk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2960.8695652173915" y="-19.419642857142858"/>
+            <point key="canvasLocation" x="3871.0144927536235" y="-19.419642857142858"/>
         </scene>
         <!--Taking Quiz View Controller-->
         <scene sceneID="WH4-eC-nnu">
@@ -67,11 +58,13 @@
                     <navigationItem key="navigationItem" id="wXy-5p-UiT"/>
                     <connections>
                         <segue destination="d5x-B2-R2c" kind="show" identifier="quizResultSegue" id="Tnw-BD-81j"/>
+                        <segue destination="JWE-uW-7sH" kind="unwind" identifier="unwindToQuizzesScreen" unwindAction="unwindFromQuizResultsScreen:" id="3px-OH-Xpi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GKg-1H-VEK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="JWE-uW-7sH" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3976.811594202899" y="-19.419642857142858"/>
+            <point key="canvasLocation" x="4886.9565217391309" y="-19.419642857142858"/>
         </scene>
         <!--Quiz Result View Controller-->
         <scene sceneID="owh-y3-2nN">
@@ -91,25 +84,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="53t-p2-7Ez" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="MCv-dp-CQp" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4938" y="-19"/>
+            <point key="canvasLocation" x="5847.826086956522" y="-19.419642857142858"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="AEJ-sg-vIt">
+        <scene sceneID="QiM-J3-zwC">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="i5W-pl-brv" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="cgs-HS-jx4" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bsZ-Cf-9uE">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="sW8-sG-hfd">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="ghO-N7-OfK" kind="relationship" relationship="rootViewController" id="zq7-AP-dXS"/>
+                        <segue destination="ghO-N7-OfK" kind="relationship" relationship="rootViewController" id="LEo-CS-oGx"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kpy-Jz-wI4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Lja-Jv-JgK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1008.6956521739131" y="-19.419642857142858"/>
+            <point key="canvasLocation" x="1918.840579710145" y="-19.419642857142858"/>
         </scene>
     </scenes>
 </document>
