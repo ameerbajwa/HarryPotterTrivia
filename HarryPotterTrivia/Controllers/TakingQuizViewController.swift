@@ -162,7 +162,7 @@ class TakingQuizViewController: UIViewController {
             quizQuestions = quiz.potions_questions
         case "Curses/Countercurses":
             quizQuestions = quiz.curses_countercurses_questions
-        case "Jinxes/Hexes/Miscanellous Spells":
+        case "Jinxes/Hexes/Spells":
             quizQuestions = quiz.jinxes_hexes_miscellaneous_spells_questions
         case "Transfiguration Spells":
             quizQuestions = quiz.transfiguration_spells_questions
