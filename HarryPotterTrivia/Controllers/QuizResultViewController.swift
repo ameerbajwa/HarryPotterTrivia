@@ -44,7 +44,7 @@ class QuizResultViewController: UIViewController {
         
         self.view.addSubview(scoreLabel)
         scoreLabel.translatesAutoresizingMaskIntoConstraints = false
-        if self.view.frame.size.height > 700.0 {
+        if self.view.frame.size.height > 750.0 {
             scoreLabel.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 100.0).isActive = true
         } else {
             scoreLabel.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 25.0).isActive = true
@@ -108,13 +108,15 @@ class QuizResultViewController: UIViewController {
         
         self.view.addSubview(backButton)
         backButton.translatesAutoresizingMaskIntoConstraints = false
-        if self.view.frame.size.height > 700.0 {
-            backButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -100.0).isActive = true
-        } else {
-            backButton.topAnchor.constraint(equalTo: scoreMessage.bottomAnchor, constant: 25.0).isActive = true
-        }
+        backButton.topAnchor.constraint(equalTo: scoreMessage.bottomAnchor, constant: 25.0).isActive = true
+//        if self.view.frame.size.height > 700.0 {
+//            backButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -100.0).isActive = true
+//        } else {
+//            backButton.topAnchor.constraint(equalTo: scoreMessage.bottomAnchor, constant: 25.0).isActive = true
+//        }
         backButton.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 20.0).isActive = true
         backButton.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -20.0).isActive = true
+        backButton.heightAnchor.constraint(equalToConstant: 25.0).isActive = true
         
     }
     

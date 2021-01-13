@@ -47,7 +47,7 @@ class TakingQuizViewController: UIViewController {
         
         let quizNameLabel = UILabel()
         quizNameLabel.text = "\(quizName!) Quiz"
-        quizNameLabel.font = self.view.frame.size.height > 700 ? UIFont(name: Constants.HARRY_POTTER_FONT, size: 25.0) : UIFont(name: Constants.HARRY_POTTER_FONT, size: 20.0)
+        quizNameLabel.font = self.view.frame.size.height > 750 ? UIFont(name: Constants.HARRY_POTTER_FONT, size: 25.0) : UIFont(name: Constants.HARRY_POTTER_FONT, size: 20.0)
         quizNameLabel.textAlignment = .center
         quizNameLabel.numberOfLines = 0
         quizNameLabel.textColor = goldBackgroundColor
@@ -56,11 +56,11 @@ class TakingQuizViewController: UIViewController {
         quizNameLabel.translatesAutoresizingMaskIntoConstraints = false
         
         quizNameLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-        if self.view.frame.size.height > 700 {
+        if self.view.frame.size.height > 750 {
             quizNameLabel.heightAnchor.constraint(equalToConstant: 30.0).isActive = true
             quizNameLabel.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 75.0).isActive = true
         } else {
-            quizNameLabel.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
+            quizNameLabel.heightAnchor.constraint(equalToConstant: 25.0).isActive = true
             quizNameLabel.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 30.0).isActive = true
         }
         

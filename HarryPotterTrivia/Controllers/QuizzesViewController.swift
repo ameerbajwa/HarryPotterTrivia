@@ -32,18 +32,11 @@ class QuizzesViewController: UIViewController, UIScrollViewDelegate {
         
         self.navigationController?.isNavigationBarHidden = true
         
-        numberOfPages = self.view.frame.height > 700.0 ? Int((Double(HarryPotterQuizNames.names.count)/6.0).rounded(.up)) : Int((Double(HarryPotterQuizNames.names.count)/4.0).rounded(.up))
+        numberOfPages = self.view.frame.height > 750.0 ? Int((Double(HarryPotterQuizNames.names.count)/6.0).rounded(.up)) : Int((Double(HarryPotterQuizNames.names.count)/4.0).rounded(.up))
         quizPageControl.numberOfPages = numberOfPages
         
         assignBackground()
         assignMessage()
-        
-        self.view.addSubview(quizPageControl)
-        quizPageControl.translatesAutoresizingMaskIntoConstraints = false
-        quizPageControl.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 50.0).isActive = true
-        quizPageControl.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -50.0).isActive = true
-        quizPageControl.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -50.0).isActive = true
-        quizPageControl.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
         
         quizScrollView.isPagingEnabled = true
         quizScrollView.isScrollEnabled = true
@@ -52,6 +45,14 @@ class QuizzesViewController: UIViewController, UIScrollViewDelegate {
         quizScrollView.frame = CGRect(x: 0.0, y: 200.0, width: self.view.bounds.size.width, height: self.view.bounds.size.height-270.0)
         quizScrollView.contentSize = CGSize(width: self.view.frame.width * CGFloat(numberOfPages), height: self.view.frame.height-270.0)
         self.view.addSubview(quizScrollView)
+        
+        self.view.addSubview(quizPageControl)
+        quizPageControl.translatesAutoresizingMaskIntoConstraints = false
+        quizPageControl.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 50.0).isActive = true
+        quizPageControl.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -50.0).isActive = true
+        quizPageControl.topAnchor.constraint(equalTo: quizScrollView.bottomAnchor, constant: 10.0).isActive = true
+//        quizPageControl.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -50.0).isActive = true
+        quizPageControl.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
         
         for _ in 1...numberOfPages {
             quizViews.append(UIView())
@@ -91,7 +92,7 @@ class QuizzesViewController: UIViewController, UIScrollViewDelegate {
         messageLabel.translatesAutoresizingMaskIntoConstraints = false
         messageLabel.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 20.0).isActive = true
         messageLabel.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -20.0).isActive = true
-        if self.view.frame.size.height > 700.0 {
+        if self.view.frame.size.height > 750.0 {
             messageLabel.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 50.0).isActive = true
         } else {
             messageLabel.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 30.0).isActive = true
@@ -104,7 +105,7 @@ class QuizzesViewController: UIViewController, UIScrollViewDelegate {
         
         var stackViewStartIndex: Int = 0
         var stackViewEndIndex: Int = 3
-        stackViewEndIndex = self.view.frame.height > 700.0 ? 3: 2
+        stackViewEndIndex = self.view.frame.height > 750.0 ? 3: 2
         
         var quizButtonStartIndex: Int = 0
         var quizButtonEndIndex: Int = 2
